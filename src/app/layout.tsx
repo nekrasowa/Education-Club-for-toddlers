@@ -13,9 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{
+        margin: 0
+      }}>
         <Header />
-        <div style={{ marginTop: '6rem' }}>{children}</div>
+        <div style={{ position: 'relative' }}>{children}</div>
         <Footer />
       </body>
     </html>
