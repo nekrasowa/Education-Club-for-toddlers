@@ -1,5 +1,6 @@
 import Footer from './_footer'
 import Header from './_header'
+import { ErrorWrapper } from './error-wrapper'
 
 export const metadata = {
   title: 'Memorizer',
@@ -17,7 +18,9 @@ export default function RootLayout({
         margin: 0
       }}>
         <Header />
+        <ErrorWrapper>
         <div style={{ position: 'relative' }}>{children}</div>
+        </ErrorWrapper>
         <Footer />
       </body>
     </html>
