@@ -1,3 +1,13 @@
+import { ContactUs } from './ContactUs'
+import { JoinUs } from './JoinUs'
+import { OurClasses } from './OurClasses'
+
 export function Dashboard() {
-  return <div>Dashboard</div>
+  return (
+    <>
+      <JoinUs />
+      <OurClasses />
+      <ContactUs />
+    </>
+  )
 }
