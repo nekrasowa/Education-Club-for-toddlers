@@ -1,3 +1,5 @@
+import './globals.css'
+
 import { Chat } from '@/components/ui/Chat'
 import { HeaderContainer } from '@/components/containers/HeaderContainer'
 
