@@ -1,3 +1,4 @@
+import { navNames } from '@/constants/navNames'
 import './Navbar.module.css'
 
 import { TabsProps } from 'antd'
@@ -7,37 +8,37 @@ const tabClassName: string = `text-blue-950 text-2xl hover:text-blue-600 focus:t
 export const tabs: TabsProps['items'] = [
   {
     key: '1',
-    label: <span className={tabClassName}>Children Education</span>,
-    children: 'Children Education',
+    label: <span className={tabClassName}>{navNames.CHILDREN_EDUCATION}</span>,
+    children: navNames.CHILDREN_EDUCATION,
   },
   {
     key: '2',
-    label: <span className={tabClassName}>Book a class</span>,
-    children: 'Book a class',
+    label: <span className={tabClassName}>{navNames.BOOK_A_CLASS}</span>,
+    children: navNames.BOOK_A_CLASS,
   },
   {
     key: '3',
-    label: <span className={tabClassName}>Class schedule</span>,
-    children: 'Class schedule',
+    label: <span className={tabClassName}>{navNames.CLASS_SCHEDULE}</span>,
+    children: navNames.CLASS_SCHEDULE
   },
   {
     key: '4',
-    label: <span className={tabClassName}>Programs</span>,
-    children: 'Programs',
+    label: <span className={tabClassName}>{navNames.PROGRAMS}</span>,
+    children: navNames.PROGRAMS,
   },
   {
     key: '5',
-    label: <span className={tabClassName}>About</span>,
-    children: 'About',
+    label: <span className={tabClassName}>{navNames.ABOUT}</span>,
+    children: navNames.ABOUT,
   },
   {
     key: '6',
-    label: <span className={tabClassName}>Gallery</span>,
-    children: 'Gallery',
+    label: <span className={tabClassName}>{navNames.GALLERY}</span>,
+    children: navNames.GALLERY,
   },
   {
     key: '7',
-    label: <span className={tabClassName}>Contact</span>,
-    children: 'Contact',
+    label: <span className={tabClassName}>{navNames.CONTACT}</span>,
+    children: navNames.CONTACT,
   },
 ]
