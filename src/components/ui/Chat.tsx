@@ -1,29 +1,24 @@
 'use client'
 
+import { useCallback, useState } from 'react'
+
 import Button from 'antd/es/button/button'
 import { ChatWindow } from './ChatWindow'
 import WechatOutlined from '@ant-design/icons/lib/icons/WechatOutlined'
-import { useState } from 'react'
 
 export function Chat() {
   const [isChatOpen, setIsChatOpen] = useState(false)
 
-  const showChat = () => {
+  const showChat = useCallback(() => {
     setIsChatOpen(true)
-  }
+  }, [])
 
-  // const handleOk = () => {
-  //   setIsChatOpen(false)
-  // }
-
-  // const handleCancel = () => {
-  //   setIsChatOpen(false)
-  // }
+  const handleCancel = useCallback(() => {
+    setIsChatOpen(false)
+  }, [])
   return (
     <>
-      {isChatOpen ? (
-        <ChatWindow />
-      ) : (
+      {!isChatOpen && (
         <Button
           type="primary"
           onClick={showChat}
@@ -33,6 +28,7 @@ export function Chat() {
           <span className="text-2xl">Let’s chat</span>
         </Button>
       )}
+      {isChatOpen && <ChatWindow crossClick={handleCancel} />}
     </>
   )
 }
