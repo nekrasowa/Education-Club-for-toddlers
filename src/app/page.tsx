@@ -1,3 +1,5 @@
+import { HomePageContainer } from '@/components/containers/HomePageContainer'
+
 export default function Home() {
-  return <h1 className='text-4xl'>Welcome home!</h1>
+  return <HomePageContainer />
 }
