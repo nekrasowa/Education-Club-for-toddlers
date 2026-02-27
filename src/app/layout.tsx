@@ -22,7 +22,7 @@ export default function RootLayout({
         }}
       >
         <HeaderContainer />
-        <div style={{ position: 'relative' }}>{children}</div>
+        <div style={{ position: 'relative', marginLeft: '10%', marginRight: '10%'}}>{children}</div>
         <Chat />
       </body>
     </html>
