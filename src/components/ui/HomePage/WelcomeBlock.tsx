@@ -1,6 +1,10 @@
+'use client'
+
+
 import Image from 'next/image'
 import firstWelcomeImg from '@/public/firstWelcomeImg.png'
 import {welcome} from '@/locales/en/welcome'
+import { BlueBtn } from '@/components/elements/BlueBtn'
 
 export function WelcomeBlock() {
   return (
@@ -9,7 +13,7 @@ export function WelcomeBlock() {
       <div className='textBlock w-1/2 bg-[#fde3e5] flex flex-col justify-center content-evenly items-center gap-y-8'>
         <p className='title text-5xl font-light text-center'>{welcome.title}</p>
         <p className='description text-xl'>{welcome.description}</p>
-        <button className='redirectBnt'>{welcome.btn}</button>
+        <BlueBtn addedClassName='redirectBnt' onClick={() => (console.log('click'))} text={welcome.btn} />
       </div>
     </div>
   )

@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react'
 
-import Button from 'antd/es/button/button'
+import { BlueBtn } from '../elements/BlueBtn'
 import { ChatWindow } from './ChatWindow'
 import WechatOutlined from '@ant-design/icons/lib/icons/WechatOutlined'
 
@@ -19,14 +19,12 @@ export function Chat() {
   return (
     <>
       {!isChatOpen && (
-        <Button
-          type="primary"
+        <BlueBtn
           onClick={showChat}
-          className="!bg-blue-900 !h-20 !w-60 !rounded-none !absolute !bottom-0 !right-10 flex items-center justify-center gap-2"
-        >
-          <WechatOutlined className="text-4xl" />
-          <span className="text-2xl">Let’s chat</span>
-        </Button>
+          addedClassName=" !h-20 !w-60 !rounded-none !absolute !bottom-0 !right-10"
+          icon={<WechatOutlined className="text-4xl" />}
+          text={<span className="text-2xl">Let’s chat</span>}
+        />
       )}
       {isChatOpen && <ChatWindow crossClick={handleCancel} />}
     </>
