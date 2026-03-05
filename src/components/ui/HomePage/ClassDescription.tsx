@@ -17,7 +17,7 @@ export function ClassDescription({
 }) {
   return (
     <div className='classWrap'>
-      <Image alt='' src={imgSrc} />
+      <Image alt={`${titleText} image`} src={imgSrc} />
       <p className='title'>{titleText}</p>
       <p className='description'>{descriptionText}</p>
       <BlueBtn
