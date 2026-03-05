@@ -13,7 +13,7 @@ export function BlueBtn({
   onClick: MouseEventHandler<HTMLElement>
   text: string | ReactElement<unknown, string | JSXElementConstructor<unknown>>
   icon?: ReactElement<unknown, string | JSXElementConstructor<unknown>>
-  addedClassName: string
+  addedClassName?: string
 } & ButtonProps) {
   return (
     <Button

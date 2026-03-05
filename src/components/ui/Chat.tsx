@@ -21,9 +21,9 @@ export function Chat() {
       {!isChatOpen && (
         <BlueBtn
           onClick={showChat}
-          addedClassName=" !h-20 !w-60 !rounded-none !absolute !bottom-0 !right-10"
-          icon={<WechatOutlined className="text-4xl" />}
-          text={<span className="text-2xl">Let’s chat</span>}
+          addedClassName='!h-20 !w-60 !rounded-none !absolute !bottom-0 !right-10'
+          icon={<WechatOutlined className='text-4xl' />}
+          text={<span className='text-2xl'>Let’s chat</span>}
         />
       )}
       {isChatOpen && <ChatWindow crossClick={handleCancel} />}
