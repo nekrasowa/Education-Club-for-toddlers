@@ -30,6 +30,12 @@ const classes: {
 export function Classes() {
   return (
     <>
+      <h1 className='classesTitle text-5xl mt-20 text-center'>
+        {welcome.classes}
+      </h1>
+      <p className='classesDescription text-xl mt-7 mb-15 mx-[10vw] text-center'>
+        {welcome.classesDescription}
+      </p>
       {classes.map((classItem, i) => (
         <ClassDescription
           key={i}
@@ -37,6 +43,7 @@ export function Classes() {
           titleText={classItem.titleText}
           descriptionText={classItem.descriptionText}
           btnText={welcome.classBtn}
+          side={i % 2 === 0 ? 'right' : 'left'}
         />
       ))}
     </>
