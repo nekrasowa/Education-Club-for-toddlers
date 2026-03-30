@@ -4,7 +4,7 @@ export const contact = {
   address:
     '500 Terry Francine Street, \n San Francisco, CA 94158 \n 123-456-7890 | info@mysite.com',
   formTitle:
-    'Join us online or at our studio for a fun & educational afternoon. Pick from painting, drawing or sculpting lessons.',
+    'Contact Us',
   firstName: 'First name',
   firstNameAlarm: 'Please input your last name!',
   lastName: 'Last name',

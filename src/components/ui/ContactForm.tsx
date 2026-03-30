@@ -85,15 +85,7 @@ export function ContactForm() {
     console.log('Failed:', errorInfo)
   }
   return (
-    <>
-      <div className='infoPart'>
-        <h2 className='infoTitle'>{contact.infoTitle}</h2>
-        <p className='subtitle'>{contact.subtitle}</p>
-        <p className='address'>{contact.address}</p>
-        <div className='icons'></div>
-      </div>
-      <div className='form'>
-        <h2 className='formTitle'>{contact.formTitle}</h2>
+      
         <Form
           name='contact'
           labelCol={{ span: 8 }}
@@ -147,7 +139,5 @@ export function ContactForm() {
             </Button>
           </Form.Item>
         </Form>
-      </div>
-    </>
   )
 }
