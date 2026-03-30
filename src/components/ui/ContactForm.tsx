@@ -1,8 +1,10 @@
 'use client'
+
 import { Button, Form, FormProps, Input, Select, Space } from 'antd'
 
 import FormItem from 'antd/es/form/FormItem'
 import TextArea from 'antd/es/input/TextArea'
+import { contact } from '@/locales/en/contact'
 import { useState } from 'react'
 
 type FieldType = {
@@ -85,13 +87,13 @@ export function ContactForm() {
   return (
     <>
       <div className='infoPart'>
-        <h2 className='infoTitle'></h2>
-        <p className='subtitle'></p>
-        <p className='address'></p>
+        <h2 className='infoTitle'>{contact.infoTitle}</h2>
+        <p className='subtitle'>{contact.subtitle}</p>
+        <p className='address'>{contact.address}</p>
         <div className='icons'></div>
       </div>
       <div className='form'>
-        <h2 className='formTitle'></h2>
+        <h2 className='formTitle'>{contact.formTitle}</h2>
         <Form
           name='contact'
           labelCol={{ span: 8 }}
@@ -105,49 +107,43 @@ export function ContactForm() {
           autoComplete='off'
         >
           <FormItem
-            label='First name'
+            label={contact.firstName}
             name='firstName'
-            rules={[
-              { required: true, message: 'Please input your first name!' },
-            ]}
+            rules={[{ required: true, message: contact.firstNameAlarm }]}
           >
             <Input />
           </FormItem>
           <FormItem
-            label='Last name'
+            label={contact.lastName}
             name='lastName'
-            rules={[
-              { required: true, message: 'Please input your last name!' },
-            ]}
+            rules={[{ required: true, message: contact.lastNameAlarm }]}
           >
             <Input />
           </FormItem>
           <FormItem
-            label='Email'
+            label={contact.email}
             name='email'
-            rules={[{ required: true, message: 'Please input your email!' }]}
+            rules={[{ required: true, message: contact.emailAlarm }]}
           >
             <Input />
           </FormItem>
           <Form.Item
+            label={contact.phone}
             name='phone'
-            label='Phone Number'
-            rules={[
-              { required: true, message: 'Please input your phone number!' },
-            ]}
+            rules={[{ required: false }]}
           >
             <PhoneInput />
           </Form.Item>
           <FormItem
-            label='Leave us a message...'
+            label={contact.message}
             name='message'
-            rules={[{ required: true, message: ' Leave us a message...' }]}
+            rules={[{ required: true, message: contact.messageAlarm }]}
           >
             <TextArea />
           </FormItem>
           <Form.Item label={null}>
             <Button type='primary' htmlType='submit'>
-              Submit
+              {contact.submit}
             </Button>
           </Form.Item>
         </Form>
