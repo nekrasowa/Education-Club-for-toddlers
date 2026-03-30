@@ -18,7 +18,7 @@ export function ContactBoard() {
         </div>
       </div>
       <div className='form'>
-        <h2 className='formTitle'>{contact.formTitle}</h2>
+        <h2 className='formTitle text-2xl'>{contact.formTitle}</h2>
         <ContactForm />
       </div>
     </div>

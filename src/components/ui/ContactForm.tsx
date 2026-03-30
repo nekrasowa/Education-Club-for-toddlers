@@ -1,6 +1,16 @@
 'use client'
 
-import { Button, Form, FormProps, Input, Select, Space } from 'antd'
+import './contactBoard.css'
+
+import {
+  Button,
+  ConfigProvider,
+  Form,
+  FormProps,
+  Input,
+  Select,
+  Space,
+} from 'antd'
 
 import FormItem from 'antd/es/form/FormItem'
 import TextArea from 'antd/es/input/TextArea'
@@ -85,59 +95,67 @@ export function ContactForm() {
     console.log('Failed:', errorInfo)
   }
   return (
-      
-        <Form
-          name='contact'
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          style={{ maxWidth: 600 }}
-          initialValues={{
-            phone: { prefix: '380' },
-          }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete='off'
+    <ConfigProvider
+      theme={{
+        token: {
+          colorText: 'oklch(98.7% 0.022 95.277)',
+        },
+      }}
+    >
+      <Form
+        name='contact'
+        labelCol={{ span: 20 }}
+        layout='vertical'
+        wrapperCol={{ span: 16 }}
+        style={{ width: 500 }}
+        initialValues={{
+          phone: { prefix: '380' },
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete='off'
+      >
+        <FormItem
+          label={contact.firstName}
+          name='firstName'
+          rules={[{ required: true, message: contact.firstNameAlarm }]}
         >
-          <FormItem
-            label={contact.firstName}
-            name='firstName'
-            rules={[{ required: true, message: contact.firstNameAlarm }]}
-          >
-            <Input />
-          </FormItem>
-          <FormItem
-            label={contact.lastName}
-            name='lastName'
-            rules={[{ required: true, message: contact.lastNameAlarm }]}
-          >
-            <Input />
-          </FormItem>
-          <FormItem
-            label={contact.email}
-            name='email'
-            rules={[{ required: true, message: contact.emailAlarm }]}
-          >
-            <Input />
-          </FormItem>
-          <Form.Item
-            label={contact.phone}
-            name='phone'
-            rules={[{ required: false }]}
-          >
-            <PhoneInput />
-          </Form.Item>
-          <FormItem
-            label={contact.message}
-            name='message'
-            rules={[{ required: true, message: contact.messageAlarm }]}
-          >
-            <TextArea />
-          </FormItem>
-          <Form.Item label={null}>
-            <Button type='primary' htmlType='submit'>
-              {contact.submit}
-            </Button>
-          </Form.Item>
-        </Form>
+          <Input />
+        </FormItem>
+        <FormItem
+          label={contact.lastName}
+          name='lastName'
+          rules={[{ required: true, message: contact.lastNameAlarm }]}
+        >
+          <Input />
+        </FormItem>
+        <FormItem
+          label={contact.email}
+          name='email'
+          rules={[{ required: true, message: contact.emailAlarm }]}
+        >
+          <Input />
+        </FormItem>
+        <Form.Item
+          label={contact.phone}
+          name='phone'
+          rules={[{ required: false }]}
+        >
+          <PhoneInput />
+        </Form.Item>
+        <FormItem
+          label={contact.message}
+          name='message'
+          rules={[{ required: true, message: contact.messageAlarm }]}
+        >
+          <TextArea />
+        </FormItem>
+        <Form.Item label={null}>
+          <Button type='primary' htmlType='submit'>
+            {contact.submit}
+          </Button>
+        </Form.Item>
+      </Form>
+    </ConfigProvider>
   )
 }
