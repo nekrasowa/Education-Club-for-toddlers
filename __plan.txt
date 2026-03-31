@@ -1,3 +1,262 @@
 - Сначала делаем общий компонент
 - Добавляем дарк тему
 - Добавляем для мобильного адаптацию
+
+Шаги:
+1) правильно воткнунть локализацию - позже
+2) доделать чат визуально
+3) сделать стартовую страницу с анимацией
+4) добавить форму внизу
+5) добавить темную тему
+6) добавить гибкость для мобильного
+7) добавить один переход на другую страницу с анимацией (страница с выбором курсов для ребенка и календарем посещений - использовать стейт)
+8) авторизация
+9) отдельная страница для админа, который может добавлять ивенты и смотреть записавшихся
+10) дать админу отправлять эмейлы родителям из приложения
+11) страница родителя, чтобы смотреть календарь ребенка и менять ивенты
+
+
+1. База (обязательный фундамент)
+✅ JavaScript (глубоко)
+
+Ты должен знать:
+
+замыкания
+
+прототипы
+
+this
+
+event loop
+
+microtask / macrotask
+
+Promise
+
+async/await
+
+debounce / throttle
+
+shallow vs deep copy
+
+immutable подход
+
+методы массивов (map, reduce, filter)
+
+ES6+
+
+Без этого Middle не бывает.
+
+⚛️ 2. React (уверенный уровень)
+🔹 Обязательно:
+
+hooks (useState, useEffect, useMemo, useCallback, useRef)
+
+custom hooks
+
+controlled / uncontrolled компоненты
+
+lifting state up
+
+context API
+
+React rendering lifecycle
+
+reconciliation
+
+key в списках
+
+оптимизация рендера
+
+memo
+
+lazy + Suspense
+
+Error Boundaries
+
+🔹 Понимание:
+
+как работает Virtual DOM
+
+как работает hydration
+
+SSR vs CSR
+
+что такое batching
+
+strict mode
+
+🚀 3. Next.js (App Router обязателен)
+🔹 Нужно знать:
+
+Server Components
+
+Client Components
+
+"use client"
+
+SSR / SSG / ISR
+
+fetch cache
+
+revalidate
+
+metadata
+
+middleware
+
+dynamic routes
+
+layout.tsx
+
+loading.tsx
+
+error.tsx
+
+route handlers (API)
+
+dynamic() и ssr:false
+
+🔹 Понимать:
+
+hydration
+
+streaming
+
+edge runtime
+
+SEO в Next
+
+image optimization
+
+📦 4. State Management
+
+Минимум один из:
+
+Zustand (очень популярен)
+
+Redux Toolkit
+
+React Query / TanStack Query
+
+Context (грамотно)
+
+Middle должен понимать:
+
+client cache
+
+server state
+
+optimistic updates
+
+invalidation
+
+🎨 5. Стилизация
+
+CSS (flex, grid обязательно)
+
+SCSS
+
+Tailwind
+
+CSS Modules
+
+styled-components
+
+Понимать:
+
+BEM
+
+specificity
+
+layout shift
+
+responsive design
+
+🌍 6. Работа с API
+
+REST
+
+fetch
+
+axios
+
+обработка ошибок
+
+interceptors
+
+auth (JWT)
+
+refresh token flow
+
+🧪 7. Тестирование
+
+Jest
+
+React Testing Library
+
+базовые unit тесты
+
+мокирование API
+
+🔧 8. Инструменты
+
+Git (rebase, merge, reset)
+
+npm / yarn / pnpm
+
+ESLint
+
+Prettier
+
+Webpack / Vite (понимание)
+
+Docker (базово)
+
+🏗 9. Архитектура
+
+Middle должен понимать:
+
+Feature-based структура
+
+Atomic Design
+
+разделение UI и логики
+
+чистые компоненты
+
+переиспользуемость
+
+SOLID (базово)
+
+🔐 10. Производительность
+
+code splitting
+
+lazy loading
+
+memo
+
+virtualization
+
+Lighthouse
+
+web vitals
+
+📊 11. Плюс к зарплате
+
+TypeScript (очень желательно)
+
+CI/CD понимание
+
+GraphQL
+
+WebSockets
+
+WebRTC
+
+PWA
+
+Monorepo (Turborepo)
+
+

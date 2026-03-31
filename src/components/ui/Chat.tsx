@@ -1,38 +1,32 @@
 'use client'
 
-import Button from 'antd/es/button/button'
+import { useCallback, useState } from 'react'
+
+import { BlueBtn } from '../elements/BlueBtn'
 import { ChatWindow } from './ChatWindow'
 import WechatOutlined from '@ant-design/icons/lib/icons/WechatOutlined'
-import { useState } from 'react'
 
 export function Chat() {
   const [isChatOpen, setIsChatOpen] = useState(false)
 
-  const showChat = () => {
+  const showChat = useCallback(() => {
     setIsChatOpen(true)
-  }
+  }, [])
 
-  // const handleOk = () => {
-  //   setIsChatOpen(false)
-  // }
-
-  // const handleCancel = () => {
-  //   setIsChatOpen(false)
-  // }
+  const handleCancel = useCallback(() => {
+    setIsChatOpen(false)
+  }, [])
   return (
     <>
-      {isChatOpen ? (
-        <ChatWindow />
-      ) : (
-        <Button
-          type="primary"
+      {!isChatOpen && (
+        <BlueBtn
           onClick={showChat}
-          className="!bg-blue-900 !h-20 !w-60 !rounded-none !absolute !bottom-0 !right-10 flex items-center justify-center gap-2"
-        >
-          <WechatOutlined className="text-4xl" />
-          <span className="text-2xl">Let’s chat</span>
-        </Button>
+          addedClassName='!h-20 !w-60 !rounded-none !fixed !bottom-0 !right-10'
+          icon={<WechatOutlined className='text-4xl' />}
+          text={<span className='text-2xl'>Let’s chat</span>}
+        />
       )}
+      {isChatOpen && <ChatWindow crossClick={handleCancel} />}
     </>
   )
 }
