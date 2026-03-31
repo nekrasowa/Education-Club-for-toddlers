@@ -2,6 +2,7 @@
   font-size: 18px;
   font-weight: 500;
   color: #fff;
+  padding: 0;
 }
 
 .ant-form-item .ant-form-item-label > label.ant-form-item-required::before {
@@ -17,6 +18,12 @@
 .ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
   background-color: #09246c;
   border-width: 2px;
+  height: 40px;
+}
+
+.ant-select .ant-select-arrow {
+  color: #fff;
+  top: 65%;
 }
 
 .ant-input {
@@ -25,6 +32,8 @@
   color: white;
   background-color: #09246c;
   transition: all 0.2s;
+  height: 40px;
+  width: 300px;
 }
 
 .ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
@@ -43,3 +52,9 @@
   background-color: #09246c;
   color: white;
 }
+
+.ant-space-compact-block {
+  width: 116%;
+}
+
+/* Todo : add flexibility to contact board */

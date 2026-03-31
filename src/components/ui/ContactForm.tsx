@@ -4,10 +4,12 @@ import './contactBoard.css'
 
 import {
   Button,
+  Col,
   ConfigProvider,
   Form,
   FormProps,
   Input,
+  Row,
   Select,
   Space,
 } from 'antd'
@@ -104,10 +106,10 @@ export function ContactForm() {
     >
       <Form
         name='contact'
-        labelCol={{ span: 20 }}
+        labelCol={{ span: 8 }}
         layout='vertical'
         wrapperCol={{ span: 16 }}
-        style={{ width: 500 }}
+        style={{ width: 800 }}
         initialValues={{
           phone: { prefix: '380' },
         }}
@@ -115,34 +117,42 @@ export function ContactForm() {
         onFinishFailed={onFinishFailed}
         autoComplete='off'
       >
-        <FormItem
-          label={contact.firstName}
-          name='firstName'
-          rules={[{ required: true, message: contact.firstNameAlarm }]}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label={contact.lastName}
-          name='lastName'
-          rules={[{ required: true, message: contact.lastNameAlarm }]}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label={contact.email}
-          name='email'
-          rules={[{ required: true, message: contact.emailAlarm }]}
-        >
-          <Input />
-        </FormItem>
-        <Form.Item
-          label={contact.phone}
-          name='phone'
-          rules={[{ required: false }]}
-        >
-          <PhoneInput />
-        </Form.Item>
+        <Row gutter={24}>
+          <Col span={12}>
+            <FormItem
+              label={contact.firstName}
+              name='firstName'
+              rules={[{ required: true, message: contact.firstNameAlarm }]}
+            >
+              <Input />
+            </FormItem>
+
+            <FormItem
+              label={contact.email}
+              name='email'
+              rules={[{ required: true, message: contact.emailAlarm }]}
+            >
+              <Input />
+            </FormItem>
+          </Col>
+
+          <Col span={12}>
+            <FormItem
+              label={contact.lastName}
+              name='lastName'
+              rules={[{ required: true, message: contact.lastNameAlarm }]}
+            >
+              <Input />
+            </FormItem>
+            <Form.Item
+              label={contact.phone}
+              name='phone'
+              rules={[{ required: false }]}
+            >
+              <PhoneInput />
+            </Form.Item>
+          </Col>
+        </Row>
         <FormItem
           label={contact.message}
           name='message'
