@@ -153,18 +153,18 @@ export function ContactForm() {
             </Form.Item>
           </Col>
         </Row>
-        <FormItem
-          label={contact.message}
-          name='message'
-          rules={[{ required: true, message: contact.messageAlarm }]}
-        >
-          <TextArea />
-        </FormItem>
-        <Form.Item label={null}>
-          <Button type='primary' htmlType='submit'>
-            {contact.submit}
-          </Button>
-        </Form.Item>
+          <FormItem
+            label={contact.message}
+            name='message'
+            rules={[{ required: true, message: contact.messageAlarm }]}
+          >
+            <TextArea />
+          </FormItem>
+          <Form.Item label={null}>
+            <Button type='primary' htmlType='submit' className='contactBtn'>
+              {contact.submit}
+            </Button>
+          </Form.Item>
       </Form>
     </ConfigProvider>
   )

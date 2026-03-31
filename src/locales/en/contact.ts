@@ -14,5 +14,5 @@ export const contact = {
   phone: 'Phone Number',
   message: 'Leave us a message...',
   messageAlarm: 'Leave us a message...',
-  submit: 'submit',
+  submit: 'Submit',
 }
