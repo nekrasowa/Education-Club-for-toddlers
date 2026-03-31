@@ -1,6 +1,6 @@
 /* Todo: optimize */
 
-:global(div[aria-selected="true"] > span) {
+:global(div[aria-selected="true"] > a) {
   color: #2563eb;
   font-weight: 600;
 }
