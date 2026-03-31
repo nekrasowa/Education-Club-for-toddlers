@@ -10,7 +10,7 @@ const onChange = (key: string) => {
 export function Navbar() {
   return (
     <>
-      <div className='text-blue-950 text-3xl'>
+      <nav className='text-blue-950 text-3xl'>
         <Tabs
           defaultActiveKey='1'
           items={tabs}
@@ -18,7 +18,7 @@ export function Navbar() {
           indicator={{ size: 0 }}
           centered
         />
-      </div>
+      </nav>
     </>
   )
 }

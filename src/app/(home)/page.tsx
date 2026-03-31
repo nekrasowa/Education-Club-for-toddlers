@@ -1,6 +1,6 @@
 import { Dashboard } from './Dashboard';
 
-export function Home() {
+export default function Home() {
   return (
     <Dashboard />
   )

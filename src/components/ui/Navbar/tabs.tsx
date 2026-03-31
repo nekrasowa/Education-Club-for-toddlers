@@ -1,44 +1,66 @@
-import { navNames } from '@/constants/navNames'
 import './Navbar.module.css'
 
+import Link from 'antd/es/typography/Link'
 import { TabsProps } from 'antd'
+import { navNames } from '@/constants/navNames'
 
 const tabClassName: string = `text-blue-950 text-2xl hover:text-blue-600 focus:text-blue-600  `
 
 export const tabs: TabsProps['items'] = [
   {
     key: '1',
-    label: <span className={tabClassName}>{navNames.CHILDREN_EDUCATION}</span>,
-    children: navNames.CHILDREN_EDUCATION,
+    label: (
+      <span className={tabClassName}>
+        <Link href='/'>{navNames.CHILDREN_EDUCATION}</Link>
+      </span>
+    ),
   },
   {
     key: '2',
-    label: <span className={tabClassName}>{navNames.BOOK_A_CLASS}</span>,
-    children: navNames.BOOK_A_CLASS,
+    label: (
+      <span className={tabClassName}>
+        <Link href='/book'>{navNames.BOOK_A_CLASS}</Link>
+      </span>
+    ),
   },
   {
     key: '3',
-    label: <span className={tabClassName}>{navNames.CLASS_SCHEDULE}</span>,
-    children: navNames.CLASS_SCHEDULE
+    label: (
+      <span className={tabClassName}>
+        <Link href='/schedule'>{navNames.CLASS_SCHEDULE}</Link>
+      </span>
+    ),
   },
   {
     key: '4',
-    label: <span className={tabClassName}>{navNames.PROGRAMS}</span>,
-    children: navNames.PROGRAMS,
+    label: (
+      <span className={tabClassName}>
+        <Link href='/programs'>{navNames.PROGRAMS}</Link>
+      </span>
+    ),
   },
   {
     key: '5',
-    label: <span className={tabClassName}>{navNames.ABOUT}</span>,
-    children: navNames.ABOUT,
+    label: (
+      <span className={tabClassName}>
+        <Link href='/about'>{navNames.ABOUT}</Link>
+      </span>
+    ),
   },
   {
     key: '6',
-    label: <span className={tabClassName}>{navNames.GALLERY}</span>,
-    children: navNames.GALLERY,
+    label: (
+      <span className={tabClassName}>
+        <Link href='/gallery'>{navNames.GALLERY}</Link>
+      </span>
+    ),
   },
   {
     key: '7',
-    label: <span className={tabClassName}>{navNames.CONTACT}</span>,
-    children: navNames.CONTACT,
+    label: (
+      <span className={tabClassName}>
+        <Link href='/'>{navNames.CONTACT}</Link>
+      </span>
+    ),
   },
 ]
