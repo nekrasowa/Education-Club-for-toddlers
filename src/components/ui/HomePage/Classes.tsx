@@ -30,6 +30,9 @@ const classes: {
 export function Classes() {
   return (
     <>
+     <div className='addedInfo bg-emerald-100 px-20 py-15 mt-30 text-2xl text-center whitespace-pre-line'>
+        {welcome.addedInfo}
+      </div>
       <h1 className='classesTitle text-5xl mt-20 text-center'>
         {welcome.classes}
       </h1>
