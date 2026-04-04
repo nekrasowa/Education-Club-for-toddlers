@@ -23,7 +23,7 @@ export function HomePageContainer() {
       <TopInfoBlock
         img={firstWelcomeImg}
         title={welcome.title}
-        text={welcome.description}
+        description={welcome.description}
         btn={redirectBtnProps}
       />
       <Classes />

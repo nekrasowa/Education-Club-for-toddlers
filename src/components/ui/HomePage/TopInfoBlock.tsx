@@ -1,18 +1,19 @@
 'use client'
 
-import { BlueBtn } from '@/components/elements/BlueBtn'
 import Image, { StaticImageData } from 'next/image'
+
+import { BlueBtn } from '@/components/elements/BlueBtn'
 import { MouseEventHandler } from 'react'
 
 export function TopInfoBlock({
   img,
   title,
-  text,
+  description,
   btn,
 }: {
   img: string | StaticImageData
   title: string
-  text: string
+  description: string
   btn?: {
     addedClassName?: string
     onClick: MouseEventHandler<HTMLElement>
@@ -25,7 +26,7 @@ export function TopInfoBlock({
         <Image src={img} alt='img' className='firstImg w-1/2 object-cover' />
         <div className='textBlock w-1/2 bg-[#fde3e5] flex flex-col justify-center content-evenly items-center gap-y-8'>
           <p className='title text-5xl font-light text-center'>{title}</p>
-          <p className='description text-xl'>{text}</p>
+          <p className='description text-xl px-20 text-center'>{description}</p>
           {btn && (
             <BlueBtn
               addedClassName={btn.addedClassName || ''}
