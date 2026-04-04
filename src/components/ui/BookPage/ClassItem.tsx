@@ -1,6 +1,8 @@
 'use client'
+
 import { BlueBtn } from '@/components/elements/BlueBtn'
-import {book} from '@/locales/en/book'
+import { ThinLine } from '@/components/elements/ThinLine'
+import { book } from '@/locales/en/book'
 export function ClassItem({
   id,
   age_group,
@@ -19,16 +21,25 @@ export function ClassItem({
   description: string
 }) {
   return (
-    <div>
-      <div className='line'></div>
-      <div className='classBlock'>
-        <p className='title&age'>{`${activity} (${age_group} ${book.years})`}</p>
-        <p className='description'>{description}</p>
-        <p className='day'>{day}</p>
-        <p className='duration'>{time}</p>
-        <p className='price'>{price}</p>
-        <BlueBtn onClick={() => console.log('click on id:', id)} text={book.bookBtn} />
+    <>
+      <ThinLine />
+      <div className='classBlock h-40 flex flex-row text-lg text-[#09246c]'>
+        <div className='block1 flex flex-col basis-1/2'>
+          <p className='title&age pb-2 font-semibold text-xl'>{`${activity} (${age_group} ${book.years})`}</p>
+          <p className='description '>{description}</p>
+        </div>
+        <div className='block2 flex flex-col basis-1/8 text-center'>
+          <p className='day pb-2 '>{day}</p>
+          <p className='duration pb-2'>{time}</p>
+          <p className='price'>{price}</p>
+        </div>
+        <div className=' ml-auto'>
+          <BlueBtn
+            onClick={() => console.log('click on id:', id)}
+            text={book.bookBtn}
+          />
+        </div>
       </div>
-    </div>
+    </>
   )
 }

@@ -1,5 +1,6 @@
 import { ClassItem } from './ClassItem'
 import { H2Title } from '@/components/elements/H2Title'
+import { ThinLine } from '@/components/elements/ThinLine'
 import { book } from '@/locales/en/book'
 import { classesList } from '@/public/classesList'
 
@@ -19,6 +20,7 @@ export function ClassesList() {
           description={item.description}
         />
       ))}
+      <ThinLine />
     </>
   )
 }
