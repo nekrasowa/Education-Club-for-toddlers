@@ -8,9 +8,9 @@ export function BookItemContainer() {
   return (
     <>
       <BackBtn link={'/book'}/>
-      <H2Title title={book.bookItemTitle} />
-      <p className='subtitle'>{book.bookItemSubtitle}</p>
-      <div>
+      <H2Title title={book.bookItemTitle} addedClassName='text-5xl text-left pb-7 text-[#09246c]'/>
+      <p className='subtitle text-lg text-[#09246c]'>{book.bookItemSubtitle}</p>
+      <div className='flex flex-row w-[100%] gap-10'>
         <CalendarBlock />
         <ClassDetails />
       </div>

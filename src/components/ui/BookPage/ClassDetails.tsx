@@ -9,7 +9,7 @@ import { book } from '@/locales/en/book'
 export function ClassDetails() {
   const text = 'extra Text'
   return (
-    <>
+    <div className='flex flex-col '>
       <H2Title title={book.serviceDetails} />
       <ThinLine />
       <p className='shortInfo'></p>
@@ -17,6 +17,6 @@ export function ClassDetails() {
         items={[{ key: '1', label: 'less text', children: <p>{text}</p> }]}
       />
       <BlueBtn onClick={() => console.log('click')} text={book.next} />
-    </>
+    </div>
   )
 }

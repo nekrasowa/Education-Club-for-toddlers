@@ -1,8 +1,8 @@
 import './Navbar.module.css'
 
+import Link from 'next/dist/client/link'
 import { TabsProps } from 'antd'
 import { navNames } from '@/constants/navNames'
-import Link from 'next/dist/client/link'
 
 const tabClassName: string = `text-blue-950 text-2xl hover:text-blue-600 focus:text-blue-600  `
 
@@ -10,7 +10,7 @@ export const tabs: TabsProps['items'] = [
   {
     key: '1',
     label: (
-        <Link className={tabClassName} href='/' >{navNames.CHILDREN_EDUCATION}</Link>
+        <Link className={tabClassName} href='/'>{navNames.CHILDREN_EDUCATION}</Link>
     ),
   },
   {
