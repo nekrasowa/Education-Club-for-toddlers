@@ -14,6 +14,6 @@ export const book = {
   serviceDetails: 'Service Details',
   more: 'More details',
   next: 'Next',
-  availability: 'Availability for '
+  availability: 'Availability for',
 }
 

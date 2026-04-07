@@ -1,5 +1,5 @@
 import { BookItemContainer } from '@/components/containers/BookItemContainer'
 
-export function BookItem() {
+export default function BookItem() {
   return <BookItemContainer />
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import { BlueBtn } from '@/components/elements/BlueBtn'
+import Link from 'next/link'
 import { ThinLine } from '@/components/elements/ThinLine'
 import { book } from '@/locales/en/book'
 export function ClassItem({
@@ -12,7 +13,7 @@ export function ClassItem({
   time,
   price,
 }: {
-  id: number
+  id: string
   activity: string
   age_group: string
   day: string
@@ -34,10 +35,11 @@ export function ClassItem({
           <p className='price'>{price}</p>
         </div>
         <div className=' ml-auto'>
-          <BlueBtn
-            onClick={() => console.log('click on id:', id)}
-            text={book.bookBtn}
-          />
+          <Link href={`/book/${id}`}>
+            <BlueBtn
+              text={book.bookBtn}
+            />
+          </Link>
         </div>
       </div>
     </>

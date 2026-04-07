@@ -1,5 +1,5 @@
 export const classesList: {
-  id: number
+  id: string
   activity: string
   age_group: string
   day: string
@@ -8,7 +8,7 @@ export const classesList: {
   description: string
 }[] = [
   {
-    id: 1,
+    id: '1',
     day: 'Monday',
     activity: 'Drawing Basics',
     age_group: '3-5',
@@ -17,7 +17,7 @@ export const classesList: {
     description: 'Learn basic drawing skills using simple shapes and lines.',
   },
   {
-    id: 2,
+    id: '2',
     day: 'Monday',
     activity: 'Clay Modeling',
     age_group: '6-8',
@@ -26,7 +26,7 @@ export const classesList: {
     description: 'Create fun objects and figures using soft clay.',
   },
   {
-    id: 3,
+    id: '3',
     day: 'Monday',
     activity: 'Creative Crafts',
     age_group: '8-10',
@@ -36,7 +36,7 @@ export const classesList: {
   },
 
   {
-    id: 4,
+    id: '4',
     day: 'Tuesday',
     activity: 'Watercolor Painting',
     age_group: '4-6',
@@ -45,7 +45,7 @@ export const classesList: {
     description: 'Learn painting techniques using watercolor paints.',
   },
   {
-    id: 5,
+    id: '5',
     day: 'Tuesday',
     activity: 'Paper Crafts',
     age_group: '6-8',
@@ -54,7 +54,7 @@ export const classesList: {
     description: 'Make creative items using paper folding and cutting.',
   },
   {
-    id: 6,
+    id: '6',
     day: 'Tuesday',
     activity: 'Sculpting',
     age_group: '8-10',
@@ -64,7 +64,7 @@ export const classesList: {
   },
 
   {
-    id: 7,
+    id: '7',
     day: 'Wednesday',
     activity: 'Coloring and Shapes',
     age_group: '3-5',
@@ -74,7 +74,7 @@ export const classesList: {
       'Develop color recognition and shape skills through fun activities.',
   },
   {
-    id: 8,
+    id: '8',
     day: 'Wednesday',
     activity: 'Cartoon Drawing',
     age_group: '6-8',
@@ -83,7 +83,7 @@ export const classesList: {
     description: 'Learn to draw simple and fun cartoon characters.',
   },
   {
-    id: 9,
+    id: '9',
     day: 'Wednesday',
     activity: 'Advanced Painting',
     age_group: '8-10',
@@ -93,7 +93,7 @@ export const classesList: {
   },
 
   {
-    id: 10,
+    id: '10',
     day: 'Thursday',
     activity: 'Finger Painting',
     age_group: '3-5',
@@ -102,7 +102,7 @@ export const classesList: {
     description: 'Have fun painting with fingers and bright colors.',
   },
   {
-    id: 11,
+    id: '11',
     day: 'Thursday',
     activity: 'DIY Crafts',
     age_group: '6-8',
@@ -111,7 +111,7 @@ export const classesList: {
     description: 'Create simple DIY projects using everyday materials.',
   },
   {
-    id: 12,
+    id: '12',
     day: 'Thursday',
     activity: 'Clay Modeling',
     age_group: '8-10',
@@ -121,7 +121,7 @@ export const classesList: {
   },
 
   {
-    id: 13,
+    id: '13',
     day: 'Friday',
     activity: 'Story Drawing',
     age_group: '4-6',
@@ -130,7 +130,7 @@ export const classesList: {
     description: 'Draw pictures that tell a simple story.',
   },
   {
-    id: 14,
+    id: '14',
     day: 'Friday',
     activity: 'Origami',
     age_group: '6-8',
@@ -139,7 +139,7 @@ export const classesList: {
     description: 'Learn paper folding techniques to create fun shapes.',
   },
   {
-    id: 15,
+    id: '15',
     day: 'Friday',
     activity: 'Creative Painting',
     age_group: '8-10',
@@ -149,7 +149,7 @@ export const classesList: {
   },
 
   {
-    id: 16,
+    id: '16',
     day: 'Saturday',
     activity: 'Art Games',
     age_group: '3-5',
@@ -158,7 +158,7 @@ export const classesList: {
     description: 'Play fun games that develop artistic skills.',
   },
   {
-    id: 17,
+    id: '17',
     day: 'Saturday',
     activity: 'Mixed Media Art',
     age_group: '6-8',
@@ -167,7 +167,7 @@ export const classesList: {
     description: 'Combine different materials to create unique artwork.',
   },
   {
-    id: 18,
+    id: '18',
     day: 'Saturday',
     activity: 'Sculpting',
     age_group: '8-10',
@@ -177,7 +177,7 @@ export const classesList: {
   },
 
   {
-    id: 19,
+    id: '19',
     day: 'Sunday',
     activity: 'Free Drawing',
     age_group: '3-6',
@@ -186,7 +186,7 @@ export const classesList: {
     description: 'Draw freely and express your imagination.',
   },
   {
-    id: 20,
+    id: '20',
     day: 'Sunday',
     activity: 'Creative Crafts',
     age_group: '7-10',

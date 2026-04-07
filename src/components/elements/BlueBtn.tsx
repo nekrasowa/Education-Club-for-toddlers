@@ -10,7 +10,7 @@ export function BlueBtn({
   addedClassName,
   ...props
 }: {
-  onClick: MouseEventHandler<HTMLElement>
+  onClick?: MouseEventHandler<HTMLElement>
   text: string | ReactElement<unknown, string | JSXElementConstructor<unknown>>
   icon?: ReactElement<unknown, string | JSXElementConstructor<unknown>>
   addedClassName?: string
