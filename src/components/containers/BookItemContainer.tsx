@@ -7,7 +7,7 @@ import { book } from '@/locales/en/book'
 export function BookItemContainer() {
   return (
     <>
-      <BackBtn />
+      <BackBtn link={'/book'}/>
       <H2Title title={book.bookItemTitle} />
       <p className='subtitle'>{book.bookItemSubtitle}</p>
       <div>

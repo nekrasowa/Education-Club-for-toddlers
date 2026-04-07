@@ -5,6 +5,7 @@ export const book = {
   classesTitle: 'Book a Class Today',
   bookBtn: 'Book Now',
   years: 'Years',
+  back: 'Back',
   bookItemTitle: 'Schedule your service',
   bookItemSubtitle: 'Check out our availability and book the date and time that works for you',
   select:'Select a Date and Time',
