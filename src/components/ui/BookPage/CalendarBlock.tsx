@@ -1,10 +1,13 @@
 'use client'
 
+import './CalendarBlock.css'
+
 import { BlueBtn } from '@/components/elements/BlueBtn'
 import { H2Title } from '@/components/elements/H2Title'
 import Select from 'antd/es/select'
 import { ThinLine } from '@/components/elements/ThinLine'
 import { book } from '@/locales/en/book'
+import MyCalendar from '@/components/elements/Calendar'
 
 export function CalendarBlock() {
   return (
@@ -13,21 +16,25 @@ export function CalendarBlock() {
         <H2Title title={book.select} addedClassName='w-1/3 pb-3' />
         <Select
           defaultValue='tzEuropa'
-          style={{ width: 120 }}
           onChange={() => console.log('select')}
           options={[
             { value: 'tzEuropa', label: book.tzEuropa },
-            { value: 'tzPDT', label: book.tzEuropa },
+            { value: 'tzPDT', label: book.tzPDT },
           ]}
         />
       </div>
-      <ThinLine />
+      <ThinLine pb='pb-5' />
       <div className='flex flew-row flew-wrap'>
-        <div className='datapicker w-1/2 h-50'></div>
-        <div className='flex-col'>
-          <p className='availability'>{`${book.availability} `}</p>
-          <BlueBtn onClick={() => console.log('click')} text={book.check} />
-        </div>{' '}
+        <MyCalendar />
+        {/* <div className='datapicker w-1/2 h-50'></div> */}
+        <div className='flex-col w-1/2'>
+          <p className='availability text-lg'>{`${book.availability} Monday, April 13`}</p>
+          <BlueBtn
+            onClick={() => console.log('click')}
+            text={book.check}
+            addedClassName='w-[100%] mt-10'
+          />
+        </div>
       </div>
     </div>
   )
