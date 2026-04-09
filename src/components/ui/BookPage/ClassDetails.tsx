@@ -12,7 +12,7 @@ export function ClassDetails() {
   return (
     <div className='flex flex-col w-1/3'>
       <H2Title title={book.serviceDetails} addedClassName='pb-3 text-left' />
-      <ThinLine pb={5} />
+      <ThinLine pb={'pb-5'} />
       <p className='shortInfo mb-3 text-lg'>Class</p>
       <Collapse
         bordered={false}

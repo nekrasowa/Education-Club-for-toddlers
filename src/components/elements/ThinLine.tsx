@@ -1,9 +1,5 @@
-export function ThinLine({ pb = 15 }: { pb?: number }) {
-  const newPb = `pb-${pb}`
-  console.log('newPb:', newPb, '>>> pb:', pb)
+export function ThinLine({ pb = 'pb-15' }: { pb?: string }) {
   return (
-    <div
-      className={`line border-t-1 border-blue-900 w-[100%] ${newPb}`}
-    ></div>
+    <div className={`line border-t border-blue-900 w-[100%] pb-10 ${pb}`}></div>
   )
 }

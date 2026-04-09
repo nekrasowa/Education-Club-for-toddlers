@@ -23,7 +23,7 @@ export function CalendarBlock() {
           ]}
         />
       </div>
-      <ThinLine pb={5} />
+      <ThinLine pb={'pb-5'} />
       <div className='flex flew-row flew-wrap'>
         <MyCalendar />
         <div className='flex-col w-1/2'>

@@ -16,7 +16,7 @@ export const tabs: TabsProps['items'] = [
   {
     key: '2',
     label: (
-        <Link className={tabClassName} href='/book'>{navNames.BOOK_A_CLASS}</Link>
+        <Link className={tabClassName} href='/class_list'>{navNames.BOOK_A_CLASS}</Link>
     ),
   },
   {

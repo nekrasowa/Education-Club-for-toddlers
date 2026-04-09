@@ -7,7 +7,7 @@ export function BlueBtn({
   onClick,
   text,
   icon,
-  addedClassName,
+  addedClassName = '',
   ...props
 }: {
   onClick?: MouseEventHandler<HTMLElement>
@@ -17,14 +17,14 @@ export function BlueBtn({
 } & ButtonProps) {
   return (
     <Button
-      type="primary"
+      type='primary'
       onClick={onClick}
       className={`!h-11 !bg-blue-900 !rounded-none flex items-center justify-center gap-2 !px-10 ${addedClassName} `}
       {...props}
     >
       {icon && <>{icon}</>}
       {typeof text === 'string' ? (
-        <span className="text-xl">{text}</span>
+        <span className='text-xl'>{text}</span>
       ) : (
         <>{text}</>
       )}
