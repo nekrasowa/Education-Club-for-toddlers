@@ -1,4 +1,4 @@
-export function ThinLine({ pb = 15 }: { pb: number }) {
+export function ThinLine({ pb = 15 }: { pb?: number }) {
   const newPb = `pb-${pb}`
   console.log('newPb:', newPb, '>>> pb:', pb)
   return (

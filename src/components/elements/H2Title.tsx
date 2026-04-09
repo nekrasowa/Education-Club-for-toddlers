@@ -3,7 +3,7 @@ export function H2Title({
   addedClassName = '',
 }: {
   title: string
-  addedClassName: string
+  addedClassName?: string
 }) {
   return (
     <h2
