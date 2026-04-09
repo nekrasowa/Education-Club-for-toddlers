@@ -1,6 +1,6 @@
 import { BackBtn } from '../elements/BackBtn'
-import { CalendarBlock } from '../ui/BookPage/CalendarBlock'
-import { ClassDetails } from '../ui/BookPage/ClassDetails'
+import { CalendarBlock } from '../ui/ClassListPage/CalendarBlock'
+import { ClassDetails } from '../ui/ClassListPage/ClassDetails'
 import { H2Title } from '../elements/H2Title'
 import { book } from '@/locales/en/book'
 
