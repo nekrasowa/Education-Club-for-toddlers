@@ -1,9 +1,9 @@
 export function H2Title({
   title,
-  addedClassName,
+  addedClassName = '',
 }: {
   title: string
-  addedClassName?: string
+  addedClassName: string
 }) {
   return (
     <h2

@@ -25,3 +25,11 @@
   .ant-select-item-option-selected {
   font-size: 18px;
 }
+
+.ant-collapse-header {
+  padding: 0 !important;
+}
+
+.ant-collapse-content-box {
+  padding: 0 !important;
+}

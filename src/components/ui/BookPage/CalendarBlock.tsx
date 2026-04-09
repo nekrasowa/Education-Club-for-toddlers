@@ -13,7 +13,7 @@ export function CalendarBlock() {
   return (
     <div className='flex flex-col grow-1000 max-w-2/3'>
       <div className='flex  flew-row items-baseline flex-wrap justify-between gap-5 '>
-        <H2Title title={book.select} addedClassName='w-1/3 pb-3' />
+        <H2Title title={book.select} addedClassName='w-1/3 pb-3 text-left' />
         <Select
           defaultValue='tzEuropa'
           onChange={() => console.log('select')}
@@ -23,7 +23,7 @@ export function CalendarBlock() {
           ]}
         />
       </div>
-      <ThinLine pb='pb-5' />
+      <ThinLine pb={5} />
       <div className='flex flew-row flew-wrap'>
         <MyCalendar />
         {/* <div className='datapicker w-1/2 h-50'></div> */}
