@@ -1,5 +1,5 @@
 import { BookFormContainer } from '@/components/containers/BookFormContainer'
 
-export function BookForm() {
+export default function BookForm() {
   return <BookFormContainer />
 }

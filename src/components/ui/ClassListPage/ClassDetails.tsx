@@ -4,19 +4,20 @@ import { BlueBtn } from '@/components/elements/BlueBtn'
 import CaretDownOutlined from '@ant-design/icons/lib/icons/CaretDownOutlined'
 import Collapse from 'antd/es/collapse/Collapse'
 import { H2Title } from '@/components/elements/H2Title'
+import Link from 'next/link'
 import { ThinLine } from '@/components/elements/ThinLine'
 import { book } from '@/locales/en/book'
 
-export function ClassDetails() {
+export function ClassDetails({ id = '1' }: { id: string }) {
   const text = 'extra Text'
   return (
     <div className='flex flex-col w-1/3'>
       <H2Title title={book.serviceDetails} addedClassName='pb-3 text-left' />
-      <ThinLine pb={'pb-5'} />
-      <p className='shortInfo mb-3 text-lg'>Class</p>
+      <ThinLine pb='pb-5' />
+      <p className='shortInfo mb-3 text-lg'>{book.class}</p>
       <Collapse
         bordered={false}
-        style={{ background: '#fff', fontSize: '18px', marginBottom: '20px'}}
+        style={{ background: '#fff', fontSize: '18px', marginBottom: '20px' }}
         expandIconPosition='end'
         expandIcon={({ isActive }) => (
           <CaretDownOutlined
@@ -34,7 +35,9 @@ export function ClassDetails() {
           },
         ]}
       />
-      <BlueBtn onClick={() => console.log('click')} text={book.next} />
+      <Link href={`/book/${id}`}>
+        <BlueBtn text={book.next} />
+      </Link>
     </div>
   )
 }
