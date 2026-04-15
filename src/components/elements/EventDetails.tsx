@@ -56,8 +56,10 @@ export function EventDetails({
         <>
           <ThinLine pb='pb-5' />
           <p className='shortInfo mb-3 text-lg'>{book.payment}</p>
-          <p className='shortInfo mb-3 text-lg'>{book.total}</p>
-          <p className='shortInfo mb-3 text-lg'>{price}</p>
+          <div className='priceBlock flex justify-between mt-2'>
+            <p className='shortInfo mb-3 text-lg'>{book.total}</p>
+            <p className='shortInfo mb-3 text-lg'>{price}</p>
+          </div>
           <ThinLine pb='pb-5' />
         </>
       )}
