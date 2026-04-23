@@ -96,7 +96,7 @@ export function ContactForm({
   textColor: string
   title: string
   messagePlaceholder: string
-  submitBtn: () => JSX.Element
+  submitBtn?: () => JSX.Element
 }) {
   const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
     console.log('Success:', values)
@@ -199,7 +199,7 @@ export function ContactForm({
           <TextArea />
         </FormItem>
         <Form.Item shouldUpdate label={null}>
-          {submitBtn}
+          {submitBtn && submitBtn}
         </Form.Item>
       </Form>
     </ConfigProvider>
