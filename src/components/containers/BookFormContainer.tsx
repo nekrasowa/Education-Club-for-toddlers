@@ -4,19 +4,33 @@ import { BackBtn } from '../elements/BackBtn'
 import { ContactForm } from '../ui/ContactForm'
 import { EventDetails } from '../elements/EventDetails'
 import { H2Title } from '../elements/H2Title'
+import Link from 'next/link'
 import { book } from '@/locales/en/book'
 import { contact } from '@/locales/en/contact'
 
 export function BookFormContainer({ id }: { id: string }) {
   return (
     <>
-      <BackBtn link={`/class_list/${id}>`} /> 
+      <BackBtn link={`/class_list/${id}>`} />
       {/* адаптировать для разных страниц */}
-      <H2Title title={contact.bookForm} addedClassName='text-4xl text-left pb-7 pt-15 text-[#09246c]'/>
+      <H2Title
+        title={contact.bookForm}
+        addedClassName='text-4xl text-left mb-0 pb-7 pt-15 text-[#09246c]'
+      />
       <div className='content flex'>
-        <div className='form'>
-          <H2Title title={contact.bookFormTitle} addedClassName='text-2xl text-center py-20 text-[#09246c] pb-3 text-left' />
-          <p className='login'></p>
+        <div className='form mr-15 w-2/3'>
+          <H2Title
+            title={contact.bookFormTitle}
+            addedClassName='text-2xl text-center py-20 text-[#09246c] pb-3 text-left'
+          />
+          <p className='login bg-[#09246c0d] px-5 py-2 my-7'>
+            <span>
+              {contact.haveQuestion}{' '}
+              <Link href='' className='text-blue-600  after:content-["_↗"]'>
+                {contact.logIn}
+              </Link>
+            </span>
+          </p>
           <ContactForm
             bgColor='#fff'
             textColor='#09246c'

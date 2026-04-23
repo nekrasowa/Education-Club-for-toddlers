@@ -17,4 +17,6 @@ export const contact = {
   bookForm: 'Booking Form',
   bookFormTitle: 'Client Details',
   book: 'Book now',
+  haveQuestion: 'Have an account?',
+  logIn: 'Log in'
 }
