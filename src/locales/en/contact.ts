@@ -3,8 +3,7 @@ export const contact = {
   subtitle: 'Art Center',
   address:
     '500 Terry Francine Street, \n San Francisco, CA 94158 \n 123-456-7890 | info@mysite.com',
-  formTitle:
-    'Contact Us',
+  formTitle: 'Contact Us',
   firstName: 'First name',
   firstNameAlarm: 'Please input your last name!',
   lastName: 'Last name',
@@ -15,4 +14,7 @@ export const contact = {
   message: 'Leave us a message...',
   messageAlarm: 'Leave us a message...',
   submit: 'Submit',
+  bookForm: 'Booking Form',
+  bookFormTitle: 'Client Details',
+  book: 'Book now',
 }

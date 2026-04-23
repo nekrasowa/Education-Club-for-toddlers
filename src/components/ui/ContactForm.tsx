@@ -3,7 +3,6 @@
 import './contactBoard.css'
 
 import {
-  Button,
   Col,
   ConfigProvider,
   Form,
@@ -86,7 +85,19 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   )
 }
 
-export function ContactForm() {
+export function ContactForm({
+  bgColor,
+  textColor,
+  title,
+  messagePlaceholder,
+  submitBtn,
+}: {
+  bgColor: string
+  textColor: string
+  title: string
+  messagePlaceholder: string
+  submitBtn: () => JSX.Element
+}) {
   const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
     console.log('Success:', values)
   }
@@ -99,13 +110,16 @@ export function ContactForm() {
   return (
     <ConfigProvider
       theme={{
-        token: {
-          colorText: 'oklch(98.7% 0.022 95.277)',
-        },
-      }}
+    components: {
+      Input: {
+        colorBgContainer: bgColor, // фон самого инпута
+        colorText: textColor,      // текст внутри
+      },
+    },
+  }}
     >
       <Form
-        name='contact'
+        name={title}
         labelCol={{ span: 8 }}
         layout='vertical'
         wrapperCol={{ span: 16 }}
@@ -153,18 +167,16 @@ export function ContactForm() {
             </Form.Item>
           </Col>
         </Row>
-          <FormItem
-            label={contact.message}
-            name='message'
-            rules={[{ required: true, message: contact.messageAlarm }]}
-          >
-            <TextArea />
-          </FormItem>
-          <Form.Item label={null}>
-            <Button type='primary' htmlType='submit' className='contactBtn'>
-              {contact.submit}
-            </Button>
-          </Form.Item>
+        <FormItem
+          label={messagePlaceholder}
+          name='message'
+          rules={[{ required: true, message: contact.messageAlarm }]}
+        >
+          <TextArea />
+        </FormItem>
+        <Form.Item shouldUpdate label={null}>
+          {submitBtn}
+        </Form.Item>
       </Form>
     </ConfigProvider>
   )

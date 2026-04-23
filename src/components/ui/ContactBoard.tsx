@@ -1,8 +1,19 @@
+'use client'
+
+import { Button } from 'antd'
 import { ContactForm } from './ContactForm'
 import FacebookOutlined from '@ant-design/icons/lib/icons/FacebookOutlined'
 import InstagramOutlined from '@ant-design/icons/lib/icons/InstagramOutlined'
 import PinterestOutlined from '@ant-design/icons/lib/icons/PinterestOutlined'
 import { contact } from '@/locales/en/contact'
+
+function submitBtn() {
+  return (
+    <Button type='primary' htmlType='submit' className='contactBtn'>
+      {contact.submit}
+    </Button>
+  )
+}
 
 export function ContactBoard() {
   return (
@@ -19,7 +30,13 @@ export function ContactBoard() {
       </div>
       <div className='form'>
         <h2 className='formTitle text-2xl pb-10 '>{contact.formTitle}</h2>
-        <ContactForm />
+        <ContactForm
+          bgColor='#09246c'
+          textColor='oklch(98.7% 0.022 95.277)'
+          title={contact.formTitle}
+          messagePlaceholder={contact.message}
+          submitBtn={submitBtn}
+        />
       </div>
     </div>
   )
