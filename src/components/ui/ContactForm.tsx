@@ -109,11 +109,35 @@ export function ContactForm({
   }
   return (
     <ConfigProvider
-      theme={{
+     theme={{
+    token: {
+      colorText: textColor,             
+    },
     components: {
       Input: {
-        colorBgContainer: bgColor, // фон самого инпута
-        colorText: textColor,      // текст внутри
+        colorBgContainer: bgColor,
+        colorBorder: textColor,
+        colorText: textColor,
+        colorTextPlaceholder: textColor,
+      },
+      Select: {
+        colorBgContainer: bgColor,
+        colorBorder: textColor,
+        colorText: textColor,
+        colorTextPlaceholder: textColor,
+      },
+      InputNumber: {
+        colorBgContainer: bgColor,
+        colorBorder: textColor,
+        colorText: textColor,
+      },
+
+      Form: {
+        labelColor: textColor,
+      },
+
+      Typography: {
+        colorText: textColor,
       },
     },
   }}
