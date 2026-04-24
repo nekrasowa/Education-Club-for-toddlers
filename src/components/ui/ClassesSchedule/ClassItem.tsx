@@ -18,6 +18,7 @@ export function ClassItem() {
         <p className='staff'></p>
         <p className='spots'>{` ${schedule.spotsLeft}`}</p>
         <Link href={`/book/id`}>
+        {/* TODO: change ig to changeable*/}
           <BlueBtn text={schedule.book} />
         </Link>
         <ThinLine />

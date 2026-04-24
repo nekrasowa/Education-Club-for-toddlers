@@ -1,3 +1,5 @@
+import { ClassesScheduleContainer } from '@/components/containers/ClassesScheduleContainer'
+
 export default function Schedule() {
-  return <div>Schedule</div>
+  return <ClassesScheduleContainer />
 }

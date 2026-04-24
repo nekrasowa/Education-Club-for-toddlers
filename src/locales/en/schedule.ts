@@ -5,4 +5,5 @@ export const schedule = {
   spotsLeft: ' spots left',
   book: 'Book',
   loadMore: 'Load more sessions',
+  selectPlaceholder: 'Filters',
 }

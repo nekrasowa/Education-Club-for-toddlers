@@ -4,7 +4,7 @@ import { TopInfoBlock } from '../ui/HomePage/TopInfoBlock'
 import { schedule } from '@/locales/en/schedule'
 import bookTopImg from '@/public/class3.png'
 
-export function ClassesSchedule() {
+export function ClassesScheduleContainer() {
   return (
     <>
       <TopInfoBlock
