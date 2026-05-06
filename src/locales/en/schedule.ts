@@ -6,4 +6,6 @@ export const schedule = {
   book: 'Book',
   loadMore: 'Load more sessions',
   selectPlaceholder: 'Filters',
+  years: 'Years',
+  hour: 'h'
 }

@@ -2,10 +2,24 @@
 
 import { Pagination, Select } from 'antd'
 
-// import { ClassItem } from './ClassItem'
+import { ClassItem } from './ClassItem'
 import { ThinLine } from '@/components/elements/ThinLine'
 import { classesList } from '@/public/classesList'
 import { schedule } from '@/locales/en/schedule'
+
+export type TClassItem = {
+  id: string
+  day: string
+  date: string
+  tutor: string
+  activity: string
+  age_group: string
+  time: string
+  duration: string
+  freeSpots: number
+  price: string
+  description: string
+}
 
 const date = 'May 2026'
 const customMap: Record<number, string> = {
@@ -91,45 +105,15 @@ export function FilteringClassesList() {
       />
 
       <div className='classesList flex col'>
-        {/* {Array.from(filteredClassesList).map(([date, classes]) => (
-          <div key={date}>
-            <div>{date}</div>
-            {classes.map(
-              (item: JSX.IntrinsicAttributes, i: Key | null | undefined) => (
-                <div key={i}>
-                  <ClassItem {...item} />
-                  {'a lot of text to see'}
-                  <ThinLine />
-                </div>
-              ),
-            )}
-          </div>
-        ))} */}
         {Array.from(filteredClassesList.entries()).map(([date, classes]) => (
           <div key={date}>
             <div>{date}</div>
-
-            {classes.map(
-              (item: {
-                id: string
-                day: string
-                date: string
-                tutor: string
-                activity: string
-                age_group: string
-                time: string
-                duration: string
-                freeSpots: number
-                price: string
-                description: string
-              }) => (
-                <div key={item.id}>
-                  {/* <ClassItem {...item} /> */}
-                  <div>a lot of text to see</div>
-                  <ThinLine />
-                </div>
-              ),
-            )}
+            {classes.map((item: TClassItem) => (
+              <div key={item.id}>
+                <ClassItem {...item} />
+              </div>
+            ))}
+            <ThinLine />
           </div>
         ))}
         <ThinLine />
