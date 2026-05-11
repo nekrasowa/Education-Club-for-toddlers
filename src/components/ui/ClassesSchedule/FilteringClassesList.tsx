@@ -76,8 +76,6 @@ function createScheduledClassesList(
 }
 
 const filteredClassesList = createScheduledClassesList(classesList)
-// console.log('values:', list.values())
-// console.log('keys:', list.keys())
 
 export function FilteringClassesList() {
   return (
@@ -104,16 +102,20 @@ export function FilteringClassesList() {
         placeholder={schedule.selectPlaceholder}
       />
 
-      <div className='classesList flex col'>
+      <div className='classesList flex flex-col w-full'>
         {Array.from(filteredClassesList.entries()).map(([date, classes]) => (
-          <div key={date}>
-            <div>{date}</div>
-            {classes.map((item: TClassItem) => (
-              <div key={item.id}>
-                <ClassItem {...item} />
-              </div>
-            ))}
-            <ThinLine />
+          <div className='dayBlock flex flex-row' key={date}>
+            <div className='text-lg w-[15%]'>
+              <ThinLine pb='pb-3' />
+              {date}
+            </div>
+            <div className='dailyClasses flex flex-col w-full'>
+              {classes.map((item: TClassItem) => (
+                <div key={item.id}>
+                  <ClassItem {...item} />
+                </div>
+              ))}
+            </div>
           </div>
         ))}
         <ThinLine />
