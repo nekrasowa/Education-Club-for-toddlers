@@ -1,11 +1,12 @@
 'use client'
 
-import { Pagination, Select } from 'antd'
+import { ConfigProvider, Pagination, Select } from 'antd'
 
 import { ClassItem } from './ClassItem'
 import { ThinLine } from '@/components/elements/ThinLine'
 import { classesList } from '@/public/classesList'
 import { schedule } from '@/locales/en/schedule'
+import './filteringClassesList.module.css'
 
 export type TClassItem = {
   id: string
@@ -80,28 +81,39 @@ const filteredClassesList = createScheduledClassesList(classesList)
 export function FilteringClassesList() {
   return (
     <>
-      <Pagination
-        total={7}
-        pageSize={1}
-        showTotal={() => <div>{date}</div>}
-        defaultCurrent={1}
-        itemRender={(page, type, originalElement) => {
-          if (type === 'page') {
-            return <span>{customMap[page] || page}</span>
-          }
-          return originalElement
-        }}
-        defaultPageSize={7}
-      />
+      <div className='headOfList flex justify-between'>
+        <ConfigProvider
+          theme={{
+            components: {
+              Pagination: {
+                itemActiveBg: '#4e6091',
+                itemSize: 50,
+              },
+            },
+          }}
+        >
+          <Pagination
+            total={7}
+            pageSize={1}
+            showTotal={() => <div>{date}</div>}
+            defaultCurrent={1}
+            itemRender={(page, type, originalElement) => {
+              if (type === 'page') {
+                return <span>{customMap[page] || page}</span>
+              }
+              return originalElement
+            }}
+            defaultPageSize={7}
+          />
+        </ConfigProvider>
 
-      <Select
-        mode='tags'
-        style={{ width: 120 }}
-        onChange={handleChange}
-        options={filterOptions}
-        placeholder={schedule.selectPlaceholder}
-      />
-
+        <Select
+          mode='tags'
+          onChange={handleChange}
+          options={filterOptions}
+          placeholder={schedule.selectPlaceholder}
+        />
+      </div>
       <div className='classesList flex flex-col w-full'>
         {Array.from(filteredClassesList.entries()).map(([date, classes]) => (
           <div className='dayBlock flex flex-row' key={date}>

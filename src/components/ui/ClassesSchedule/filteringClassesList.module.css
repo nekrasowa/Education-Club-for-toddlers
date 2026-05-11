@@ -1,0 +1,29 @@
+:global(.ant-pagination) {
+  width: 65rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: medium;
+}
+
+:global(.ant-pagination .ant-pagination-item-active) {
+  color: #fff;
+  border-radius: 25px;
+  border-color: none;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+:global(.ant-pagination-item) {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+:global(.ant-select-multiple.ant-select-show-arrow.ant-select-show-search) {
+  width: 20rem;
+}
+:global(.ant-select-selector) {
+  margin-top: 45px;
+}
+
+:global(.ant-select .ant-select-arrow) {
+  top: 60%;
+}

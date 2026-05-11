@@ -23,7 +23,7 @@ export function ClassItem({
           <p className='title w-80 pl-20'>{`${activity} (${age_group} ${schedule.years})`}</p>
           <p className='time text-lg pl-20'>{`${time} (${duration} ${schedule.hour})`}</p>
         </div>
-        <p className='staff text-lg'>{tutor}</p>
+        <p className='staff w-35 text-lg'>{tutor}</p>
         <p className='spots text-lg'>{`${freeSpots} ${schedule.spotsLeft}`}</p>
         {/* add disabling if 0 spots */}
         <Link href={`/book/${id}}`}>
