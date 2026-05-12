@@ -1,12 +1,14 @@
 'use client'
 
+import './filteringClassesList.module.css'
+
 import { ConfigProvider, Pagination, Select } from 'antd'
 
 import { ClassItem } from './ClassItem'
 import { ThinLine } from '@/components/elements/ThinLine'
 import { classesList } from '@/public/classesList'
+import dayjs from 'dayjs'
 import { schedule } from '@/locales/en/schedule'
-import './filteringClassesList.module.css'
 
 export type TClassItem = {
   id: string
@@ -22,16 +24,16 @@ export type TClassItem = {
   description: string
 }
 
-const date = 'May 2026'
-const customMap: Record<number, string> = {
-  1: 'Sun 24',
-  2: 'Mon 25',
-  3: 'Tue 26',
-  4: 'Wed 27',
-  5: 'Thu 28',
-  6: 'Fri 29',
-  7: 'Sat 30',
-}
+const currDate = dayjs()
+const monthYear = dayjs(currDate).format('MMM YYYY')
+const daysInMonth = dayjs().daysInMonth()
+// const month = dayjs(currDate).format('MMM')
+
+const daysMap = Array.from({ length: daysInMonth+1 }, (_, i) =>
+  dayjs()
+    .date(i)
+    .format('DD ddd'),
+)
 
 const filterOptions = [
   { value: 'freeSpots', label: 'Free spots' },
@@ -93,17 +95,19 @@ export function FilteringClassesList() {
           }}
         >
           <Pagination
-            total={7}
+            total={daysInMonth}
             pageSize={1}
-            showTotal={() => <div>{date}</div>}
+            showLessItems
+            showTotal={() => <div>{monthYear}</div>}
             defaultCurrent={1}
             itemRender={(page, type, originalElement) => {
               if (type === 'page') {
-                return <span>{customMap[page] || page}</span>
+                return <span>{daysMap[page] || page}</span>
               }
+              console.log(type, originalElement)
               return originalElement
             }}
-            defaultPageSize={7}
+            defaultPageSize={4}
           />
         </ConfigProvider>
 

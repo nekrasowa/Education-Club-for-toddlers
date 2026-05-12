@@ -22,7 +22,6 @@ export const classesList: {
     duration: '1',
     freeSpots: 0,
     price: '25 RON',
-
     description: 'Learn basic drawing skills using simple shapes and lines.',
   },
   {
@@ -275,6 +274,19 @@ export const classesList: {
     time: '11:15-12:15',
     duration: '1',
     freeSpots: 5,
+    price: '28 RON',
+    description: 'Explore creativity through hands-on craft projects.',
+  },
+  {
+    id: '21',
+    day: 'Tuesday',
+    date: 'Mai 05',
+    tutor: 'Sam Smith',
+    activity: 'Creative Crafts',
+    age_group: '7-10',
+    time: '11:15-12:15',
+    duration: '1',
+    freeSpots: 0,
     price: '28 RON',
     description: 'Explore creativity through hands-on craft projects.',
   },

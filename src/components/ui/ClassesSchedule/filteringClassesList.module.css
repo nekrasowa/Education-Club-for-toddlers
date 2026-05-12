@@ -13,8 +13,21 @@
   padding-right: 15px;
 }
 :global(.ant-pagination-item) {
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-inline-end: 10px;
+}
+:global(.ant-pagination-jump-next.ant-pagination-jump-next-custom-icon) {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-inline-end: 10px;
+
+}
+:global( .ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon) {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-inline-end: 10px;
+
 }
 
 :global(.ant-select-multiple.ant-select-show-arrow.ant-select-show-search) {
