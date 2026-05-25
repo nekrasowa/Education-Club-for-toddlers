@@ -4,52 +4,38 @@ import { TClassItem } from '@/components/ui/ClassesSchedule/FilteringClassesList
 import { classesList } from '@/public/classesList'
 import { daysMap } from './dayjs'
 
-const classDaysOnly = new Set(
-  classesList.map((item) => item.date.match(/\d+/)?.[0]),
-)
+const getDay = (value: string) => value.match(/\d+/)?.[0]
 
-function getDaysWithoutClasses(daysList: string[]): string[] {
-  return daysList.filter((item) => {
-    const day = item.match(/\d+/)?.[0]
-    return !classDaysOnly.has(day)
-  })
-}
-const daysWithoutClasses = getDaysWithoutClasses(daysMap)
+const classDaysOnly = new Set(classesList.map((item) => getDay(item.date)))
 
-export const createScheduledClassesList: (
+const getDaysWithoutClasses = (daysList: string[]) =>
+  daysList.filter((day) => !classDaysOnly.has(getDay(day)))
+
+const daysWithoutClasses = new Set(getDaysWithoutClasses(daysMap))
+
+export const createScheduledClassesList = (
   list: TClassItem[],
-) => Map<string, TClassItem[]> = (list) => {
-  const filteredClassesList: Map<string, TClassItem[]> = new Map()
-  list.map((listItem) => {
-    if (!!filteredClassesList.get(listItem.date)) {
-      const currentSubList = filteredClassesList.get(listItem.date)
-      currentSubList?.push(listItem)
-      filteredClassesList.set(listItem.date, currentSubList || [])
-      return filteredClassesList
-    }
+): Map<string, TClassItem[]> =>
+  list.reduce((map, item) => {
+    map.set(item.date, [...(map.get(item.date) ?? []), item])
+    return map
+  }, new Map<string, TClassItem[]>())
 
-    filteredClassesList.set(listItem.date, [listItem])
-    return filteredClassesList
-  })
-  return filteredClassesList
-}
-
-export const onDayChange: (
+export const onDayChange = (
   page: number,
   setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
-) => void = (page, setClassList) => {
+) => {
   const currentDay = daysMap[page]
-console.log('daysWithoutClasses',daysWithoutClasses)
-console.log('currentDay',daysWithoutClasses.includes(currentDay))
 
-  if (daysWithoutClasses.includes(currentDay)) return
+  if (daysWithoutClasses.has(currentDay)) return
+
+  const currentDayNumber = getDay(currentDay)
 
   const startPoint = classesList.findIndex(
-    (classItem) => classItem.date.match(/\d+/)?.[0] === currentDay.match(/\d+/)?.[0],
+    (item) => getDay(item.date) === currentDayNumber,
   )
 
-  const newList = classesList.slice(startPoint)
-  setClassList(createScheduledClassesList(newList))
-  console.log('newList:', newList)
-  return
+  if (startPoint === -1) return
+
+  setClassList(createScheduledClassesList(classesList.slice(startPoint)))
 }
