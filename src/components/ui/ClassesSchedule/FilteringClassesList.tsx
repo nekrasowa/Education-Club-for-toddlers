@@ -3,12 +3,18 @@
 import './filteringClassesList.module.css'
 
 import { ConfigProvider, Pagination, Select } from 'antd'
+import {
+  createScheduledClassesList,
+  onDayChange,
+} from '@/services/classListServ'
 
 import { ClassItem } from './ClassItem'
 import { ThinLine } from '@/components/elements/ThinLine'
 import { classesList } from '@/public/classesList'
-import dayjs from 'dayjs'
+// import dayjs from 'dayjs'
 import { schedule } from '@/locales/en/schedule'
+import { useClassesDates } from '@/services/dayjs'
+import { useState } from 'react'
 
 export type TClassItem = {
   id: string
@@ -24,16 +30,13 @@ export type TClassItem = {
   description: string
 }
 
-const currDate = dayjs()
-const monthYear = dayjs(currDate).format('MMM YYYY')
-const daysInMonth = dayjs().daysInMonth()
-// const month = dayjs(currDate).format('MMM')
+// const currDate = dayjs()
+// const monthYear = dayjs(currDate).format('MMM YYYY')
+// const daysInMonth = dayjs().daysInMonth()
 
-const daysMap = Array.from({ length: daysInMonth+1 }, (_, i) =>
-  dayjs()
-    .date(i)
-    .format('DD ddd'),
-)
+// const daysMap = Array.from({ length: daysInMonth + 1 }, (_, i) =>
+//   dayjs().date(i).format('ddd DD'),
+// )
 
 const filterOptions = [
   { value: 'freeSpots', label: 'Free spots' },
@@ -48,39 +51,14 @@ const handleChange = (value: string) => {
   console.log(`selected ${value}`)
 }
 
-function createScheduledClassesList(
-  list: {
-    id: string
-    day: string
-    date: string
-    tutor: string
-    activity: string
-    age_group: string
-    time: string
-    duration: string
-    freeSpots: number
-    price: string
-    description: string
-  }[],
-) {
-  const filteredClassesList = new Map()
-  list.map((listItem) => {
-    if (!!filteredClassesList.get(listItem.date)) {
-      const currentSubList = filteredClassesList.get(listItem.date)
-      currentSubList.push(listItem)
-      filteredClassesList.set(listItem.date, currentSubList)
-      return filteredClassesList
-    }
-
-    filteredClassesList.set(listItem.date, [listItem])
-    return filteredClassesList
-  })
-  return filteredClassesList
-}
-
 const filteredClassesList = createScheduledClassesList(classesList)
 
 export function FilteringClassesList() {
+  const [showedClassList, setShowedClasslist] =
+    useState<Map<string, TClassItem[]>>(filteredClassesList)
+
+  const [daysInMonth, monthYear, daysMap] = useClassesDates()
+
   return (
     <>
       <div className='headOfList flex justify-between'>
@@ -104,10 +82,12 @@ export function FilteringClassesList() {
               if (type === 'page') {
                 return <span>{daysMap[page] || page}</span>
               }
-              console.log(type, originalElement)
               return originalElement
             }}
             defaultPageSize={4}
+            onChange={(page) => {
+              onDayChange(page, setShowedClasslist)
+            }}
           />
         </ConfigProvider>
 
@@ -119,7 +99,7 @@ export function FilteringClassesList() {
         />
       </div>
       <div className='classesList flex flex-col w-full'>
-        {Array.from(filteredClassesList.entries()).map(([date, classes]) => (
+        {Array.from(showedClassList.entries()).map(([date, classes]) => (
           <div className='dayBlock flex flex-row' key={date}>
             <div className='text-lg w-[15%]'>
               <ThinLine pb='pb-3' />
