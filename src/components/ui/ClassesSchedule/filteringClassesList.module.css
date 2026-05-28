@@ -21,13 +21,11 @@
   margin-left: 10px;
   margin-right: 10px;
   margin-inline-end: 10px;
-
 }
-:global( .ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon) {
+:global(.ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon) {
   margin-left: 10px;
   margin-right: 10px;
   margin-inline-end: 10px;
-
 }
 
 :global(.ant-select-multiple.ant-select-show-arrow.ant-select-show-search) {
@@ -39,4 +37,28 @@
 
 :global(.ant-select .ant-select-arrow) {
   top: 60%;
+}
+
+:global(.ant-pagination-item:has(.pagination-disabled)) {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+:global(.ant-pagination-item:has(.pagination-disabled):hover) {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+:global(.pagination-disabled) {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+:global(.ant-pagination .ant-pagination-item-active:has(.pagination-disabled)) {
+  color: #000000;
+  opacity: 0.4;
+}
+:global(.ant-pagination .ant-pagination-item-active:has(.pagination-disabled):hover) {
+  color: #000000;
+  opacity: 0.4;
 }

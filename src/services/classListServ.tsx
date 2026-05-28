@@ -11,7 +11,7 @@ const classDaysOnly = new Set(classesList.map((item) => getDay(item.date)))
 const getDaysWithoutClasses = (daysList: string[]) =>
   daysList.filter((day) => !classDaysOnly.has(getDay(day)))
 
-const daysWithoutClasses = new Set(getDaysWithoutClasses(daysMap))
+export const daysWithoutClasses = new Set(getDaysWithoutClasses(daysMap))
 
 export const createScheduledClassesList = (
   list: TClassItem[],
@@ -21,21 +21,43 @@ export const createScheduledClassesList = (
     return map
   }, new Map<string, TClassItem[]>())
 
+function getNextAvailableDay(currentDay: string) {
+  const currentIndex = daysMap.indexOf(currentDay)
+
+  for (let i = currentIndex + 1; i < daysMap.length; i++) {
+    const nextDay = daysMap[i]
+
+    if (!daysWithoutClasses.has(nextDay)) {
+      return nextDay
+    }
+  }
+
+  return currentDay
+}
+
 export const onDayChange = (
   page: number,
   setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
 ) => {
   const currentDay = daysMap[page]
 
-  if (daysWithoutClasses.has(currentDay)) return
+  const targetDay = daysWithoutClasses.has(currentDay)
+    ? getNextAvailableDay(currentDay)
+    : currentDay
 
-  const currentDayNumber = getDay(currentDay)
+  if (!targetDay) return
+
+  const targetDayNumber = getDay(targetDay)
 
   const startPoint = classesList.findIndex(
-    (item) => getDay(item.date) === currentDayNumber,
+    item => getDay(item.date) === targetDayNumber,
   )
 
   if (startPoint === -1) return
 
-  setClassList(createScheduledClassesList(classesList.slice(startPoint)))
+  setClassList(
+    createScheduledClassesList(
+      classesList.slice(startPoint),
+    ),
+  )
 }

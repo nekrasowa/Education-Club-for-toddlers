@@ -5,6 +5,7 @@ import './filteringClassesList.module.css'
 import { ConfigProvider, Pagination, Select } from 'antd'
 import {
   createScheduledClassesList,
+  daysWithoutClasses,
   onDayChange,
 } from '@/services/classListServ'
 
@@ -56,6 +57,7 @@ const filteredClassesList = createScheduledClassesList(classesList)
 export function FilteringClassesList() {
   const [showedClassList, setShowedClasslist] =
     useState<Map<string, TClassItem[]>>(filteredClassesList)
+  const [currentPage, setCurrentPage] = useState(1)
 
   const [daysInMonth, monthYear, daysMap] = useClassesDates()
 
@@ -73,6 +75,7 @@ export function FilteringClassesList() {
           }}
         >
           <Pagination
+            current={currentPage}
             total={daysInMonth}
             pageSize={1}
             showLessItems
@@ -80,12 +83,27 @@ export function FilteringClassesList() {
             defaultCurrent={1}
             itemRender={(page, type, originalElement) => {
               if (type === 'page') {
-                return <span>{daysMap[page] || page}</span>
+                const day = daysMap[page]
+                const isDisabled = daysWithoutClasses.has(day)
+
+                return (
+                  <span className={isDisabled ? 'pagination-disabled' : ''}>
+                    {day || page}
+                  </span>
+                )
               }
               return originalElement
             }}
             defaultPageSize={4}
             onChange={(page) => {
+              const day = daysMap[page]
+
+              if (daysWithoutClasses.has(day)) {
+                setCurrentPage(page)
+                return
+              }
+
+              setCurrentPage(page)
               onDayChange(page, setShowedClasslist)
             }}
           />
