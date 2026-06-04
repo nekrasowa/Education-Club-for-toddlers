@@ -6,35 +6,18 @@ import { ConfigProvider, Pagination, Select } from 'antd'
 import {
   createScheduledClassesList,
   daysWithoutClasses,
+  handleDeletingTag,
+  handleFilterTagsChange,
   onDayChange,
 } from '@/services/classListServ'
 
 import { ClassItem } from './ClassItem'
 import { ThinLine } from '@/components/elements/ThinLine'
-import { classesList } from '@/public/classesList'
+import { classesList, type TClassItem } from '@/public/classesList'
 import { filtersList } from '@/public/filtersList'
-// import dayjs from 'dayjs'
 import { schedule } from '@/locales/en/schedule'
 import { useClassesDates } from '@/services/dayjs'
 import { useState } from 'react'
-
-export type TClassItem = {
-  id: string
-  day: string
-  date: string
-  tutor: string
-  activity: string
-  age_group: string
-  time: string
-  duration: string
-  freeSpots: number
-  price: string
-  description: string
-}
-
-const handleChange = (value: string) => {
-  console.log(`selected ${value}`)
-}
 
 const filteredClassesList = createScheduledClassesList(classesList)
 
@@ -42,6 +25,7 @@ export function FilteringClassesList() {
   const [showedClassList, setShowedClasslist] =
     useState<Map<string, TClassItem[]>>(filteredClassesList)
   const [currentPage, setCurrentPage] = useState(1)
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   const [daysInMonth, monthYear, daysMap] = useClassesDates()
 
@@ -95,11 +79,18 @@ export function FilteringClassesList() {
 
         <Select
           mode='tags'
-          onChange={handleChange}
+          onBlur={() =>
+            handleFilterTagsChange(selectedTags, setShowedClasslist)
+          }
+          onChange={(selectedTags: string[]) => setSelectedTags(selectedTags)}
+          onDeselect={(deletedTag: string) =>
+            handleDeletingTag(deletedTag, selectedTags, setShowedClasslist)
+          }
           options={filtersList}
           placeholder={schedule.selectPlaceholder}
         />
       </div>
+
       <div className='classesList flex flex-col w-full'>
         {Array.from(showedClassList.entries()).map(([date, classes]) => (
           <div className='dayBlock flex flex-row' key={date}>

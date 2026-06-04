@@ -1,4 +1,20 @@
-export const classesList = [
+
+export type TClassItem = {
+  id: string
+  day: string
+  date: string
+  tutorId: string
+  tutor: string
+  activity: string
+  age_group: string
+  time: string
+  duration: string
+  freeSpots: number
+  price: string
+  description: string
+}
+
+export const classesList: TClassItem[] = [
   {
     id: '1',
     day: 'Thursday',
