@@ -8,18 +8,20 @@ export function BlueBtn({
   text,
   icon,
   addedClassName = '',
+  isDisabled = false,
   ...props
 }: {
   onClick?: MouseEventHandler<HTMLElement>
   text: string | ReactElement<unknown, string | JSXElementConstructor<unknown>>
   icon?: ReactElement<unknown, string | JSXElementConstructor<unknown>>
   addedClassName?: string
+  isDisabled?: boolean
 } & ButtonProps) {
   return (
     <Button
       type='primary'
       onClick={onClick}
-      className={`!h-11 !bg-blue-900 !rounded-none flex items-center justify-center gap-2 !px-10 ${addedClassName} `}
+      className={`!h-11 !bg-blue-900 !rounded-none flex items-center justify-center gap-2 !px-10 ${addedClassName} ${isDisabled ? '!bg-gray-400' : '' }`}
       {...props}
     >
       {icon && <>{icon}</>}

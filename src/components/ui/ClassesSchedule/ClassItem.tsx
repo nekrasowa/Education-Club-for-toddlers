@@ -25,10 +25,13 @@ export function ClassItem({
         </div>
         <p className='staff w-35 text-lg'>{tutor}</p>
         <p className='spots text-lg'>{`${freeSpots} ${schedule.spotsLeft}`}</p>
-        {/* add disabling if 0 spots */}
-        <Link href={`/book/${id}}`}>
-          <BlueBtn text={schedule.book} />
-        </Link>
+        {!freeSpots ? (
+          <BlueBtn isDisabled text={schedule.book} />
+        ) : (
+          <Link href={`/book/${id}}`}>
+            <BlueBtn text={schedule.book} />
+          </Link>
+        )}
       </div>
     </>
   )
