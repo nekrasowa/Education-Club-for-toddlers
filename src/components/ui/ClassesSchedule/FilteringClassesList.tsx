@@ -72,22 +72,28 @@ export function FilteringClassesList() {
               }
 
               setCurrentPage(page)
-              onDayChange(page, setShowedClasslist)
+              onDayChange(page, selectedTags, setShowedClasslist)
             }}
           />
         </ConfigProvider>
 
         <Select
           mode='tags'
-          onBlur={() =>
-            handleFilterTagsChange(selectedTags, setShowedClasslist)
-          }
           onChange={(selectedTags: string[]) => {
             setSelectedTags(selectedTags)
-            handleFilterTagsChange(selectedTags, setShowedClasslist)
+            handleFilterTagsChange(
+              selectedTags,
+              currentPage,
+              setShowedClasslist,
+            )
           }}
           onDeselect={(deletedTag: string) =>
-            handleDeletingTag(deletedTag, selectedTags, setShowedClasslist)
+            handleDeletingTag(
+              deletedTag,
+              selectedTags,
+              setShowedClasslist,
+              currentPage,
+            )
           }
           options={filtersList}
           placeholder={schedule.selectPlaceholder}

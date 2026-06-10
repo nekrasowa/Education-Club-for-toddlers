@@ -20,47 +20,10 @@ export const createScheduledClassesList = (
     return map
   }, new Map<string, TClassItem[]>())
 
-function getNextAvailableDay(currentDay: string) {
-  const currentIndex = daysMap.indexOf(currentDay)
-
-  for (let i = currentIndex + 1; i < daysMap.length; i++) {
-    const nextDay = daysMap[i]
-
-    if (!daysWithoutClasses.has(nextDay)) {
-      return nextDay
-    }
-  }
-
-  return currentDay
-}
-
-export const onDayChange = (
-  page: number,
-  setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
-) => {
-  const currentDay = daysMap[page]
-
-  const targetDay = daysWithoutClasses.has(currentDay)
-    ? getNextAvailableDay(currentDay)
-    : currentDay
-
-  if (!targetDay) return
-
-  const targetDayNumber = getDay(targetDay)
-
-  const startPoint = classesList.findIndex(
-    (item) => getDay(item.date) === targetDayNumber,
-  )
-
-  if (startPoint === -1) return
-
-  setClassList(createScheduledClassesList(classesList.slice(startPoint)))
-}
-
-export const handleFilterTagsChange = (
+const filterClasses = (
+  list: TClassItem[],
   selectedTags: string[],
-  setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
-) => {
+): TClassItem[] => {
   const tagSet = new Set(selectedTags)
 
   const tutorTags = selectedTags.filter((t) => t.startsWith('t-'))
@@ -79,7 +42,7 @@ export const handleFilterTagsChange = (
 
   const selectedAgeValues = ageTags.map((t) => ageMap[t])
 
-  const filteredClassList = classesList.filter((classItem) => {
+  return list.filter((classItem) => {
     if (selectedTags.length === 0) return true
 
     const tutorOk =
@@ -93,15 +56,57 @@ export const handleFilterTagsChange = (
 
     return tutorOk && ageOk && freeSpotsOk
   })
+}
 
-  setClassList(createScheduledClassesList(filteredClassList))
+const getClassesFromDay = (
+  list: TClassItem[],
+  currentDay: string,
+): TClassItem[] => {
+  const currentDayNumber = Number(getDay(currentDay))
+
+  const startPoint = list.findIndex(
+    (item) => Number(getDay(item.date)) >= currentDayNumber,
+  )
+
+  return startPoint === -1 ? [] : list.slice(startPoint)
+}
+
+export const onDayChange = (
+  page: number,
+  selectedTags: string[],
+  setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
+) => {
+  const currentDay = daysMap[page]
+
+  const filteredList = filterClasses(classesList, selectedTags)
+  console.log('[filteredList onDayChange]:', filteredList)
+  const result = getClassesFromDay(filteredList, currentDay)
+  console.log('[result onDayChange]:', result)
+
+  setClassList(createScheduledClassesList(result))
+}
+
+export const handleFilterTagsChange = (
+  selectedTags: string[],
+  page: number,
+  setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
+) => {
+  const currentDay = daysMap[page]
+
+  const filteredList = filterClasses(classesList, selectedTags)
+  console.log('[filteredList handleFilterTagsChange]:', filteredList)
+
+  const result = getClassesFromDay(filteredList, currentDay)
+
+  setClassList(createScheduledClassesList(result))
 }
 
 export const handleDeletingTag = (
   deletedTag: string,
   selectedTags: string[],
-  setClassList:Dispatch<SetStateAction<Map<string, TClassItem[]>>>
+  setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
+  page: number,
 ) => {
   const newTagList = selectedTags.filter((tag) => tag !== deletedTag)
-  handleFilterTagsChange(newTagList, setClassList)
+  handleFilterTagsChange(newTagList, page, setClassList)
 }
