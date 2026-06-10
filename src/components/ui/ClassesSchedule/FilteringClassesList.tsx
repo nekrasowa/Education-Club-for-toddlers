@@ -82,7 +82,10 @@ export function FilteringClassesList() {
           onBlur={() =>
             handleFilterTagsChange(selectedTags, setShowedClasslist)
           }
-          onChange={(selectedTags: string[]) => setSelectedTags(selectedTags)}
+          onChange={(selectedTags: string[]) => {
+            setSelectedTags(selectedTags)
+            handleFilterTagsChange(selectedTags, setShowedClasslist)
+          }}
           onDeselect={(deletedTag: string) =>
             handleDeletingTag(deletedTag, selectedTags, setShowedClasslist)
           }

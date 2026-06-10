@@ -104,5 +104,4 @@ export const handleDeletingTag = (
 ) => {
   const newTagList = selectedTags.filter((tag) => tag !== deletedTag)
   handleFilterTagsChange(newTagList, setClassList)
-  console.log('[selectedTags]:', newTagList)
 }
