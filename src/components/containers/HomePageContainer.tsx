@@ -3,7 +3,7 @@
 import { Classes } from '../ui/HomePage/Classes'
 import Image from 'next/image'
 import { MouseEventHandler } from 'react'
-import { TopInfoBlock } from '../elements/TopInfoBlock'
+import { TopInfoBlock } from '../elements/InfoBlock'
 import firstWelcomeImg from '@/public/firstWelcomeImg.png'
 import secondWelcomeImg from '@/public/secondWelcomeImg.png'
 import { welcome } from '@/locales/en/welcome'

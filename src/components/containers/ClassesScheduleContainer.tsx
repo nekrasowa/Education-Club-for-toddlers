@@ -1,6 +1,6 @@
 // import { BlueBtn } from '../elements/BlueBtn'
 import { FilteringClassesList } from '../ui/ClassesSchedule/FilteringClassesList'
-import { TopInfoBlock } from '../elements/TopInfoBlock'
+import { TopInfoBlock } from '../elements/InfoBlock'
 import { schedule } from '@/locales/en/schedule'
 import bookTopImg from '@/public/class3.png'
 
