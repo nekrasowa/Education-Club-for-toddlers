@@ -1,15 +1,15 @@
 import { ClassesList } from '../ui/ClassListPage/ClassesList'
-import { TopInfoBlock } from '../elements/InfoBlock'
+import { InfoBlockWithImg } from '../elements/InfoBlockWithImg'
 import { book } from '@/locales/en/book'
 import bookTopImg from '@/public/bookTopImg.png'
 
 export function ClassListContainer() {
   return (
     <>
-      <TopInfoBlock
-        img={bookTopImg}
-        title={book.topBlockTitle}
-        description={book.description}
+      <InfoBlockWithImg
+        imgSrc={bookTopImg}
+        titleText={book.topBlockTitle}
+        descriptionText={book.description}
       />
       <ClassesList />
     </>
