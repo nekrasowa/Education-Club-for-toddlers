@@ -1,4 +1,4 @@
-import { BlueBtn } from '../elements/BlueBtn'
+// import { BlueBtn } from '../elements/BlueBtn'
 import { FilteringClassesList } from '../ui/ClassesSchedule/FilteringClassesList'
 import { TopInfoBlock } from '../ui/HomePage/TopInfoBlock'
 import { schedule } from '@/locales/en/schedule'
@@ -13,7 +13,7 @@ export function ClassesScheduleContainer() {
         description={schedule.description}
       />
       <FilteringClassesList />
-      <BlueBtn text={schedule.loadMore} />
+      {/* <BlueBtn text={schedule.loadMore} /> */}
     </>
   )
 }
