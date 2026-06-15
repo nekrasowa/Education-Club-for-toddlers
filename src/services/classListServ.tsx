@@ -5,7 +5,7 @@ import { daysMap } from './dayjs'
 
 const getDay = (value: string) => value.match(/\d+/)?.[0]
 
-const classDaysOnly = new Set(classesList.map((item) => getDay(item.date)))
+const classDaysOnly = new Set(classesList.map((item) => getDay(item.print_date)))
 
 const getDaysWithoutClasses = (daysList: string[]) =>
   daysList.filter((day) => !classDaysOnly.has(getDay(day)))
@@ -16,7 +16,7 @@ export const createScheduledClassesList = (
   list: TClassItem[],
 ): Map<string, TClassItem[]> =>
   list.reduce((map, item) => {
-    map.set(item.date, [...(map.get(item.date) ?? []), item])
+    map.set(item.print_date, [...(map.get(item.print_date) ?? []), item])
     return map
   }, new Map<string, TClassItem[]>())
 
@@ -65,7 +65,7 @@ const getClassesFromDay = (
   const currentDayNumber = Number(getDay(currentDay))
 
   const startPoint = list.findIndex(
-    (item) => Number(getDay(item.date)) >= currentDayNumber,
+    (item) => Number(getDay(item.print_date)) >= currentDayNumber,
   )
 
   return startPoint === -1 ? [] : list.slice(startPoint)
@@ -77,12 +77,8 @@ export const onDayChange = (
   setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
 ) => {
   const currentDay = daysMap[page]
-
   const filteredList = filterClasses(classesList, selectedTags)
-  console.log('[filteredList onDayChange]:', filteredList)
   const result = getClassesFromDay(filteredList, currentDay)
-  console.log('[result onDayChange]:', result)
-
   setClassList(createScheduledClassesList(result))
 }
 
@@ -92,12 +88,8 @@ export const handleFilterTagsChange = (
   setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
 ) => {
   const currentDay = daysMap[page]
-
   const filteredList = filterClasses(classesList, selectedTags)
-  console.log('[filteredList handleFilterTagsChange]:', filteredList)
-
   const result = getClassesFromDay(filteredList, currentDay)
-
   setClassList(createScheduledClassesList(result))
 }
 

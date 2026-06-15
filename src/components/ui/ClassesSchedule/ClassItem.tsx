@@ -14,18 +14,19 @@ export function ClassItem({
   time,
   duration,
   freeSpots,
+  isExpired
 }: TClassItem) {
   return (
     <>
       <ThinLine pb='pb-3' />
       <div className='dayBlock flex flex-row h-20 text-xl justify-between mb-3'>
-        <div className='mainBlock '>
+        <div className='mainBlock'>
           <p className='title w-80 pl-20'>{`${activity} (${age_group} ${schedule.years})`}</p>
           <p className='time text-lg pl-20'>{`${time} (${duration} ${schedule.hour})`}</p>
         </div>
         <p className='staff w-35 text-lg'>{tutor}</p>
         <p className='spots text-lg'>{`${freeSpots} ${schedule.spotsLeft}`}</p>
-        {!freeSpots ? (
+        {!freeSpots || isExpired ? (
           <BlueBtn isDisabled text={schedule.book} />
         ) : (
           <Link href={`/book/${id}}`}>

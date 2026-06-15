@@ -13,21 +13,29 @@ import {
 
 import { ClassItem } from './ClassItem'
 import { ThinLine } from '@/components/elements/ThinLine'
-import { classesList, type TClassItem } from '@/public/classesList'
+import { type TClassItem } from '@/public/classesList'
 import { filtersList } from '@/public/filtersList'
 import { schedule } from '@/locales/en/schedule'
 import { useClassesDates } from '@/services/dayjs'
 import { useState } from 'react'
 
-const filteredClassesList = createScheduledClassesList(classesList)
-
 export function FilteringClassesList() {
+  const [
+    currDateNumber,
+    daysInMonth,
+    monthYear,
+    daysMap,
+    classesListWithUtcDates,
+  ] = useClassesDates()
+
+  const filteredClassesList = createScheduledClassesList(
+    classesListWithUtcDates,
+  )
+
   const [showedClassList, setShowedClasslist] =
     useState<Map<string, TClassItem[]>>(filteredClassesList)
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(currDateNumber)
   const [selectedTags, setSelectedTags] = useState<string[]>([])
-
-  const [daysInMonth, monthYear, daysMap] = useClassesDates()
 
   return (
     <>
@@ -122,4 +130,3 @@ export function FilteringClassesList() {
   )
 }
 export { TClassItem }
-

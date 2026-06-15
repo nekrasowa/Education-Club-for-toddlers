@@ -2,7 +2,8 @@
 export type TClassItem = {
   id: string
   day: string
-  date: string
+  print_date: string
+  utc_date?: string
   tutorId: string
   tutor: string
   activity: string
@@ -12,13 +13,14 @@ export type TClassItem = {
   freeSpots: number
   price: string
   description: string
+  isExpired?: boolean
 }
 
 export const classesList: TClassItem[] = [
   {
     id: '1',
     day: 'Thursday',
-    date: 'June 01',
+    print_date: 'June 01',
     tutorId: 't-1',
     tutor: 'Sam Hog',
     activity: 'Drawing Basics',
@@ -32,7 +34,7 @@ export const classesList: TClassItem[] = [
   {
     id: '2',
     day: 'Thursday',
-    date: 'June 01',
+    print_date: 'June 01',
     tutorId: 't-1',
     tutor: 'Sam Hog',
     activity: 'Clay Modeling',
@@ -43,11 +45,10 @@ export const classesList: TClassItem[] = [
     price: '30 RON',
     description: 'Create fun objects and figures using soft clay.',
   },
-
   {
     id: '3',
     day: 'Friday',
-    date: 'June 02',
+    print_date: 'June 02',
     tutorId: 't-2',
     tutor: 'Matty Smith',
     activity: 'Creative Crafts',
@@ -61,7 +62,7 @@ export const classesList: TClassItem[] = [
   {
     id: '4',
     day: 'Friday',
-    date: 'June 02',
+    print_date: 'June 02',
     tutorId: 't-2',
     tutor: 'Matty Smith',
     activity: 'Watercolor Painting',
@@ -76,7 +77,7 @@ export const classesList: TClassItem[] = [
   {
     id: '5',
     day: 'Monday',
-    date: 'June 05',
+    print_date: 'June 05',
     tutorId: 't-4',
     tutor: 'Sam Smith',
     activity: 'Paper Crafts',
@@ -90,7 +91,7 @@ export const classesList: TClassItem[] = [
   {
     id: '6',
     day: 'Monday',
-    date: 'June 05',
+    print_date: 'June 05',
     tutorId: 't-4',
     tutor: 'Sam Smith',
     activity: 'Sculpting',
@@ -105,7 +106,7 @@ export const classesList: TClassItem[] = [
   {
     id: '7',
     day: 'Tuesday',
-    date: 'June 06',
+    print_date: 'June 06',
     tutorId: 't-3',
     tutor: 'Dicky Roper',
     activity: 'Coloring and Shapes',
@@ -119,7 +120,7 @@ export const classesList: TClassItem[] = [
   {
     id: '8',
     day: 'Tuesday',
-    date: 'June 06',
+    print_date: 'June 06',
     tutorId: 't-3',
     tutor: 'Dicky Roper',
     activity: 'Cartoon Drawing',
@@ -134,7 +135,7 @@ export const classesList: TClassItem[] = [
   {
     id: '9',
     day: 'Wednesday',
-    date: 'June 07',
+    print_date: 'June 07',
     tutorId: 't-1',
     tutor: 'Sam Hog',
     activity: 'Advanced Painting',
@@ -148,7 +149,7 @@ export const classesList: TClassItem[] = [
   {
     id: '10',
     day: 'Wednesday',
-    date: 'June 07',
+    print_date: 'June 07',
     tutorId: 't-1',
     tutor: 'Sam Hog',
     activity: 'Finger Painting',
@@ -159,11 +160,10 @@ export const classesList: TClassItem[] = [
     price: '20 RON',
     description: 'Have fun painting with fingers and bright colors.',
   },
-
   {
     id: '11',
     day: 'Thursday',
-    date: 'June 08',
+    print_date: 'June 08',
     tutorId: 't-2',
     tutor: 'Matty Smith',
     activity: 'DIY Crafts',
@@ -177,7 +177,7 @@ export const classesList: TClassItem[] = [
   {
     id: '12',
     day: 'Thursday',
-    date: 'June 08',
+    print_date: 'June 08',
     tutorId: 't-2',
     tutor: 'Matty Smith',
     activity: 'Clay Modeling',
@@ -192,7 +192,7 @@ export const classesList: TClassItem[] = [
   {
     id: '13',
     day: 'Friday',
-    date: 'June 09',
+    print_date: 'June 09',
     tutorId: 't-4',
     tutor: 'Sam Smith',
     activity: 'Story Drawing',
@@ -206,7 +206,7 @@ export const classesList: TClassItem[] = [
   {
     id: '14',
     day: 'Friday',
-    date: 'June 09',
+    print_date: 'June 09',
     tutorId: 't-4',
     tutor: 'Sam Smith',
     activity: 'Origami',
@@ -221,7 +221,7 @@ export const classesList: TClassItem[] = [
   {
     id: '15',
     day: 'Monday',
-    date: 'June 12',
+    print_date: 'June 12',
     tutorId: 't-3',
     tutor: 'Dicky Roper',
     activity: 'Creative Painting',
@@ -235,7 +235,7 @@ export const classesList: TClassItem[] = [
   {
     id: '16',
     day: 'Monday',
-    date: 'June 12',
+    print_date: 'June 12',
     tutorId: 't-3',
     tutor: 'Dicky Roper',
     activity: 'Art Games',
@@ -246,11 +246,10 @@ export const classesList: TClassItem[] = [
     price: '20 RON',
     description: 'Play fun games that develop artistic skills.',
   },
-
   {
     id: '17',
     day: 'Tuesday',
-    date: 'June 13',
+    print_date: 'June 13',
     tutorId: 't-1',
     tutor: 'Sam Hog',
     activity: 'Mixed Media Art',
@@ -264,7 +263,7 @@ export const classesList: TClassItem[] = [
   {
     id: '18',
     day: 'Tuesday',
-    date: 'June 13',
+    print_date: 'June 13',
     tutorId: 't-1',
     tutor: 'Sam Hog',
     activity: 'Sculpting',
@@ -275,11 +274,10 @@ export const classesList: TClassItem[] = [
     price: '30 RON',
     description: 'Build shapes and figures using sculpting techniques.',
   },
-
   {
     id: '23',
     day: 'Friday',
-    date: 'June 16',
+    print_date: 'June 16',
     tutorId: 't-2',
     tutor: 'Matty Smith',
     activity: 'Clay Modeling',
@@ -293,7 +291,7 @@ export const classesList: TClassItem[] = [
   {
     id: '24',
     day: 'Monday',
-    date: 'June 19',
+    print_date: 'June 19',
     tutorId: 't-1',
     tutor: 'Sam Hog',
     activity: 'Drawing Basics',
@@ -307,7 +305,7 @@ export const classesList: TClassItem[] = [
   {
     id: '25',
     day: 'Monday',
-    date: 'June 19',
+    print_date: 'June 19',
     tutorId: 't-1',
     tutor: 'Sam Hog',
     activity: 'Creative Crafts',
@@ -321,7 +319,7 @@ export const classesList: TClassItem[] = [
   {
     id: '26',
     day: 'Tuesday',
-    date: 'June 20',
+    print_date: 'June 20',
     tutorId: 't-4',
     tutor: 'Sam Smith',
     activity: 'Sculpting',
@@ -335,7 +333,7 @@ export const classesList: TClassItem[] = [
   {
     id: '27',
     day: 'Wednesday',
-    date: 'June 21',
+    print_date: 'June 21',
     tutorId: 't-2',
     tutor: 'Matty Smith',
     activity: 'Watercolor Painting',
@@ -349,7 +347,7 @@ export const classesList: TClassItem[] = [
   {
     id: '28',
     day: 'Wednesday',
-    date: 'June 21',
+    print_date: 'June 21',
     tutorId: 't-2',
     tutor: 'Matty Smith',
     activity: 'Cartoon Drawing',
@@ -363,7 +361,7 @@ export const classesList: TClassItem[] = [
   {
     id: '29',
     day: 'Thursday',
-    date: 'June 22',
+    print_date: 'June 22',
     tutorId: 't-3',
     tutor: 'Dicky Roper',
     activity: 'Advanced Painting',
@@ -377,7 +375,7 @@ export const classesList: TClassItem[] = [
   {
     id: '30',
     day: 'Friday',
-    date: 'June 23',
+    print_date: 'June 23',
     tutorId: 't-4',
     tutor: 'Sam Smith',
     activity: 'Origami',
@@ -391,7 +389,7 @@ export const classesList: TClassItem[] = [
   {
     id: '31',
     day: 'Monday',
-    date: 'June 26',
+    print_date: 'June 26',
     tutorId: 't-3',
     tutor: 'Dicky Roper',
     activity: 'Creative Painting',
@@ -405,7 +403,7 @@ export const classesList: TClassItem[] = [
   {
     id: '32',
     day: 'Tuesday',
-    date: 'June 27',
+    print_date: 'June 27',
     tutorId: 't-1',
     tutor: 'Sam Hog',
     activity: 'Mixed Media Art',
@@ -419,7 +417,7 @@ export const classesList: TClassItem[] = [
   {
     id: '33',
     day: 'Wednesday',
-    date: 'June 28',
+    print_date: 'June 28',
     tutorId: 't-2',
     tutor: 'Matty Smith',
     activity: 'Free Drawing',
@@ -433,7 +431,7 @@ export const classesList: TClassItem[] = [
   {
     id: '34',
     day: 'Thursday',
-    date: 'June 29',
+    print_date: 'June 29',
     tutorId: 't-4',
     tutor: 'Sam Smith',
     activity: 'DIY Crafts',
@@ -447,7 +445,7 @@ export const classesList: TClassItem[] = [
   {
     id: '35',
     day: 'Friday',
-    date: 'June 30',
+    print_date: 'June 30',
     tutorId: 't-3',
     tutor: 'Dicky Roper',
     activity: 'Art Games',
