@@ -1,5 +1,5 @@
 import { ClassesList } from '../ui/ClassListPage/ClassesList'
-import { TopInfoBlock } from '../ui/HomePage/TopInfoBlock'
+import { TopInfoBlock } from '../elements/TopInfoBlock'
 import { book } from '@/locales/en/book'
 import bookTopImg from '@/public/bookTopImg.png'
 
