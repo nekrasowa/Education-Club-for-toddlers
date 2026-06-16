@@ -5,6 +5,7 @@ import class3 from '@/public/class3.png'
 import { welcome } from '@/locales/en/welcome'
 import { InfoBlockWithImg } from '@/components/elements/InfoBlockWithImg'
 import { MouseEventHandler } from 'react'
+import { blockSide } from '@/services/styleFunctions'
 
 const classes: {
   imgSrc: StaticImageData
@@ -12,7 +13,7 @@ const classes: {
   descriptionText: string
   btn?: {
     onClick: MouseEventHandler<HTMLElement>
-    btn: string
+    btnText: string
   }
 }[] = [
   {
@@ -21,7 +22,7 @@ const classes: {
     descriptionText: welcome.description1,
     btn: {
       onClick: () => {},
-      btn: welcome.classBtn,
+      btnText: welcome.classBtn,
     },
   },
   {
@@ -30,7 +31,7 @@ const classes: {
     descriptionText: welcome.description2,
     btn: {
       onClick: () => {},
-      btn: welcome.classBtn,
+      btnText: welcome.classBtn,
     },
   },
   {
@@ -39,7 +40,7 @@ const classes: {
     descriptionText: welcome.description3,
     btn: {
       onClick: () => {},
-      btn: welcome.classBtn,
+      btnText: welcome.classBtn,
     },
   },
 ]
@@ -63,7 +64,7 @@ export function Classes() {
           titleText={classItem.titleText}
           descriptionText={classItem.descriptionText}
           btn={classItem.btn}
-          side={i % 2 === 0 ? 'right' : 'left'}
+          side={blockSide(i)}
           isCentered={false}
         />
       ))}

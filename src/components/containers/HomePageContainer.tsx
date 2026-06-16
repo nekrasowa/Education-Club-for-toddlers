@@ -12,11 +12,11 @@ export function HomePageContainer() {
   const redirectBtnProps: {
     addedClassName?: string
     onClick: MouseEventHandler<HTMLElement>
-    btn: string
+    btnText: string
   } = {
     onClick: () => console.log('click'),
     addedClassName: '',
-    btn: welcome.btn,
+    btnText: welcome.btn,
   }
   return (
     <>
@@ -25,6 +25,8 @@ export function HomePageContainer() {
         titleText={welcome.title}
         descriptionText={welcome.description}
         btn={redirectBtnProps}
+          bg='bg-[#fde3e5]'
+
       />
       <Classes />
       <Image alt='' src={secondWelcomeImg} />
