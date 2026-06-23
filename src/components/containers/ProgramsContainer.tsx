@@ -25,7 +25,7 @@ export function ProgramsContainer() {
             titleText={program.programTitle}
             descriptionText={`$${program.price}.00`}
             side={blockSide(i)}
-            btn={{ onClick: () => {}, btnText: programs.btnText }}
+            btn={{btnText: programs.btnText, linkHref: `/programs/${program.id}`  }}
             bg='bg-[#a8b6da40]'
           />
           <div className='mb-20'></div>

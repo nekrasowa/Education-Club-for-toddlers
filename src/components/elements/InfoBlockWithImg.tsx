@@ -4,6 +4,7 @@ import Image, { StaticImageData } from 'next/image'
 import { TBlockSide, conLeft } from '@/types/commonTypes'
 
 import { BlueBtn } from '@/components/elements/BlueBtn'
+import Link from 'next/link'
 import { MouseEventHandler } from 'react'
 
 export function InfoBlockWithImg({
@@ -20,8 +21,9 @@ export function InfoBlockWithImg({
   descriptionText: string
   btn?: {
     addedClassName?: string
-    onClick: MouseEventHandler<HTMLElement>
+    onClick?: MouseEventHandler<HTMLElement>
     btnText: string
+    linkHref?: string
   }
   side?: TBlockSide
   isCentered?: boolean
@@ -50,13 +52,21 @@ export function InfoBlockWithImg({
         >
           {descriptionText}
         </p>
-        {btn && (
-          <BlueBtn
-            addedClassName={btn.addedClassName || ''}
-            onClick={btn.onClick}
-            text={btn.btnText}
-          />
-        )}
+        {btn &&
+          (btn.linkHref ? (
+            <Link href={btn.linkHref}>
+              <BlueBtn
+                addedClassName={btn.addedClassName || ''}
+                text={btn.btnText}
+              />
+            </Link>
+          ) : (
+            <BlueBtn
+              addedClassName={btn.addedClassName || ''}
+              onClick={btn.onClick}
+              text={btn.btnText}
+            />
+          ))}
       </div>
     </div>
   )

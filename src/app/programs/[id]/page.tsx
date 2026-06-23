@@ -1,5 +1,5 @@
-import { ProgramItemContainer } from '@/components/containers/ProgramItemContainer';
+import { ProgramItemContainer } from '@/components/containers/ProgramItemContainer'
 
-export function ProgramItem() {
+export default function ProgramItem() {
   return <ProgramItemContainer />
 }

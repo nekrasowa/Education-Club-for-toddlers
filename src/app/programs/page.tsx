@@ -1,7 +1,5 @@
-import { ProgramsContainer } from '@/components/containers/ProgramsContainer';
+import { ProgramsContainer } from '@/components/containers/ProgramsContainer'
 
 export default function Programs() {
-  return (
-    <ProgramsContainer />
-  )
+  return <ProgramsContainer />
 }
