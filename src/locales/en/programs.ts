@@ -7,7 +7,7 @@ export const programs = {
 }
 
 export const programItem = {
-  topTitle: 'Steps',
+  steps: 'Steps',
   about: 'About',
   instructors: 'Instructors',
   price: 'Price',
