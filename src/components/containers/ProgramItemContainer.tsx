@@ -31,6 +31,7 @@ export function ProgramItemContainer() {
         imgSrc={data.imgSrc}
         titleText={data.programTitle}
         descriptionText={`${data.steps} ${programItem.steps}`}
+        bg='bg-[#a8b6da1a]'
       />
       <div className='px-50 text-xl text-left'>
         <H2Title title={programItem.about} addedClassName={h2TitleStyles} />

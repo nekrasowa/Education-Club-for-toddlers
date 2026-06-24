@@ -22,7 +22,7 @@ export const ProgramsList: TProgram[] = [
     imgSrc: program1,
     description:
       'An interactive online class where you learn how to create compelling characters, from developing their personality and backstory to designing their visual appearance.',
-    instructors: ['t-3', 't-2'],
+    instructors: ['Sam Hog', 'Matty Smith'],
   },
   {
     programTitle: 'Online Comic Class',
@@ -32,7 +32,7 @@ export const ProgramsList: TProgram[] = [
     imgSrc: program2,
     description:
       'An interactive online class that teaches you how to create comics step by step — including storytelling, character development, composition, and panel design.',
-    instructors: ['t-1'],
+    instructors: ['Sam Smith'],
   },
   {
     programTitle: 'Online Introduction to Drawing',
@@ -42,6 +42,6 @@ export const ProgramsList: TProgram[] = [
     imgSrc: program3,
     description:
       'An online introductory class that teaches the fundamentals of drawing, such as line work, shapes, perspective basics, and simple sketching exercises.',
-    instructors: ['t-4'],
+    instructors: ['Dicky Roper'],
   },
 ]

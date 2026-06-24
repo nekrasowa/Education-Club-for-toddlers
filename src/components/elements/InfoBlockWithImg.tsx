@@ -30,6 +30,7 @@ export function InfoBlockWithImg({
   bg?: string
 }) {
   const isLeft = side === conLeft
+
   return (
     <div
       className={`blockWithImg h-1/4 w-full relative flex ${isCentered ? '' : 'justify-between my-20'}`}
