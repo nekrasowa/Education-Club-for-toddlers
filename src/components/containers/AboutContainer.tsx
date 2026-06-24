@@ -10,13 +10,17 @@ export function AboutContainer() {
         imgSrc={aboutPageTop}
         titleText={about.title}
         descriptionText={about.description}
+        bg='bg-[#fde3e5]'
       />
-      <div className='bg=[#d8f5e1] text-center p-20'>
-        <H2Title title={about.subtitle} />
-        {about.description2}
+
+      <div className='bg-[#d8f5e1] text-center mt-20'>
+        <H2Title title={about.subtitle} addedClassName='pb-10 '/>
+        <p className='text-xl px-40 pb-5'>{about.description2} </p>
+        <p className='text-xl px-40 pb-20'>{about.description3} </p>
       </div>
-      <H2Title title={about.teachersTitle} />
-      <p>{about.teachersIntroduce}</p>
+
+      <H2Title title={about.teachersTitle} addedClassName='text-2xl pb-5' />
+      <p className='px-60 text-center text-xl pb-20'>{about.teachersIntroduce}</p>
 
       <H2Title title={about.commentsTitle} />
       <div></div>
