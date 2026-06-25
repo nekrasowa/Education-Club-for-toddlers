@@ -5,6 +5,7 @@ import { InfoBlockWithImg } from '../elements/InfoBlockWithImg'
 import { TeacherCard } from '../ui/AboutPage/TeacherCard'
 import { about } from '@/locales/en/about'
 import aboutPageTop from '@/public/aboutPageTop.png'
+import { ParentsCommentsBlock } from '../ui/AboutPage/ParentsCommentsBlock'
 
 export function AboutContainer() {
   return (
@@ -45,6 +46,7 @@ export function AboutContainer() {
       
       <H2Title title={about.commentsTitle} />
       
+      <ParentsCommentsBlock />
     </>
   )
 }

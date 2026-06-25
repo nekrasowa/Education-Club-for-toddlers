@@ -1,0 +1,4 @@
+:global(.ant-carousel .slick-prev),
+:global(.ant-carousel .slick-next) {
+  color: black;
+}
