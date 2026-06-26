@@ -38,12 +38,6 @@ export const tabs: TabsProps['items'] = [
     ),
   },
   {
-    key: '6',
-    label: (
-        <Link className={tabClassName} href='/gallery'>{navNames.GALLERY}</Link>
-    ),
-  },
-  {
     key: '7',
     label: (
         <Link className={tabClassName} href='/'>{navNames.CONTACT}</Link>

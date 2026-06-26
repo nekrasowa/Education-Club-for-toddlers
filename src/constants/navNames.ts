@@ -6,7 +6,6 @@ export const navNames = {
   CLASS_SCHEDULE: 'Class schedule',
   PROGRAMS: 'Programs',
   ABOUT: 'About',
-  GALLERY: 'Gallery',
   CONTACT: 'Contact',
 } as const
 
