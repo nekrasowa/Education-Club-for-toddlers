@@ -1,6 +1,6 @@
 'use client'
 
-import './contactBoard.css'
+import './contactBoard.module.css'
 
 import {
   Col,
@@ -34,6 +34,11 @@ interface PhoneInputProps {
   id?: string
   value?: PhoneValue
   onChange?: (value: PhoneValue) => void
+}
+
+const colSpan = {
+  lg: { span: 20 },
+  xxl: { span: 12 },
 }
 
 const PhoneInput: React.FC<PhoneInputProps> = ({
@@ -109,45 +114,42 @@ export function ContactForm({
   }
   return (
     <ConfigProvider
-     theme={{
-    token: {
-      colorText: textColor,             
-    },
-    components: {
-      Input: {
-        colorBgContainer: bgColor,
-        colorBorder: textColor,
-        colorText: textColor,
-        colorTextPlaceholder: textColor,
-      },
-      Select: {
-        colorBgContainer: bgColor,
-        colorBorder: textColor,
-        colorText: textColor,
-        colorTextPlaceholder: textColor,
-      },
-      InputNumber: {
-        colorBgContainer: bgColor,
-        colorBorder: textColor,
-        colorText: textColor,
-      },
+      theme={{
+        token: {
+          colorText: textColor,
+        },
+        components: {
+          Input: {
+            colorBgContainer: bgColor,
+            colorBorder: textColor,
+            colorText: textColor,
+            colorTextPlaceholder: textColor,
+          },
+          Select: {
+            colorBgContainer: bgColor,
+            colorBorder: textColor,
+            colorText: textColor,
+            colorTextPlaceholder: textColor,
+          },
+          InputNumber: {
+            colorBgContainer: bgColor,
+            colorBorder: textColor,
+            colorText: textColor,
+          },
 
-      Form: {
-        labelColor: textColor,
-      },
+          Form: {
+            labelColor: textColor,
+          },
 
-      Typography: {
-        colorText: textColor,
-      },
-    },
-  }}
+          Typography: {
+            colorText: textColor,
+          },
+        },
+      }}
     >
       <Form
         name={title}
-        labelCol={{ span: 8 }}
         layout='vertical'
-        wrapperCol={{ span: 16 }}
-        style={{ width: 800 }}
         initialValues={{
           phone: { prefix: '380' },
         }}
@@ -155,8 +157,8 @@ export function ContactForm({
         onFinishFailed={onFinishFailed}
         autoComplete='off'
       >
-        <Row gutter={24}>
-          <Col span={12}>
+        <Row gutter={16}>
+          <Col {...colSpan}>
             <FormItem
               label={contact.firstName}
               name='firstName'
@@ -174,7 +176,7 @@ export function ContactForm({
             </FormItem>
           </Col>
 
-          <Col span={12}>
+          <Col {...colSpan}>
             <FormItem
               label={contact.lastName}
               name='lastName'

@@ -1,0 +1,55 @@
+:global(.ant-form-item-label > label.ant-form-item-required) {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0;
+}
+:global(.ant-form-item-label > label:not(.ant-form-item-required)) {
+  font-size: 18px;
+}
+
+:global(.ant-form-item .ant-form-item-label > label.ant-form-item-required::before) {
+  order: 2;
+  margin-left: -10px;
+  font-size: 18px;
+  border: none;
+}
+:global(.ant-form-item) {
+  margin-bottom: 12px;
+}
+
+:global(.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector) {
+  border-width: 2px;
+  height: 40px;
+}
+
+:global(.ant-select .ant-select-arrow) {
+  top: 65%;
+}
+
+:global(.ant-input) {
+  border-radius: 0;
+  border: 2px solid;
+  transition: all 0.2s;
+  height: 40px;
+  width: 100%;
+  min-width: 0;
+}
+
+:global(.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled)) {
+  border-width: 2px;
+}
+
+:global(.ant-input:focus) {
+  box-shadow: none;
+}
+
+:global(.ant-space-compact-block) {
+  width: 100%;
+}
+
+:global(.ant-btn-variant-solid.contactBtn) {
+  background-color: rgb(204, 163, 184);
+  color: black;
+  font-size: 20px;
+  padding: 25px 60px;
+}
