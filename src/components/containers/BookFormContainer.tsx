@@ -12,7 +12,6 @@ export function BookFormContainer({ id }: { id: string }) {
   return (
     <>
       <BackBtn link={`/class_list/${id}>`} />
-      {/* адаптировать для разных страниц */}
       <H2Title
         title={contact.bookForm}
         addedClassName='text-4xl text-left mb-0 pb-7 pt-15 text-[#09246c]'

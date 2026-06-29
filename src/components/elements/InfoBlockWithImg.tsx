@@ -14,7 +14,7 @@ export function InfoBlockWithImg({
   btn,
   side = conLeft,
   isCentered = true,
-  bg = '',
+  bg = 'bg-[#fde3e5]',
 }: {
   imgSrc: StaticImageData
   titleText: string

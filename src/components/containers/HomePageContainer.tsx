@@ -25,8 +25,6 @@ export function HomePageContainer() {
         titleText={welcome.title}
         descriptionText={welcome.description}
         btn={redirectBtnProps}
-          bg='bg-[#fde3e5]'
-
       />
       <Classes />
       <Image alt='' src={secondWelcomeImg} />
