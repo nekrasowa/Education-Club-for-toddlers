@@ -13,7 +13,6 @@ export function ClassesScheduleContainer() {
         descriptionText={schedule.description}
       />
       <FilteringClassesList />
-      {/* <BlueBtn text={schedule.loadMore} /> */}
     </>
   )
 }
