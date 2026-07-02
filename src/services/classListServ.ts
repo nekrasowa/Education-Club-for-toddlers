@@ -12,6 +12,8 @@ const getDaysWithoutClasses = (daysList: string[]) =>
 
 export const daysWithoutClasses = new Set(getDaysWithoutClasses(daysMap))
 
+
+
 export const createScheduledClassesList = (
   list: TClassItem[],
 ): Map<string, TClassItem[]> =>
@@ -20,6 +22,9 @@ export const createScheduledClassesList = (
     return map
   }, new Map<string, TClassItem[]>())
 
+
+
+  
 const filterClasses = (
   list: TClassItem[],
   selectedTags: string[],
