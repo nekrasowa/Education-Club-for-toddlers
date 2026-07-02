@@ -12,7 +12,6 @@ export const daysMap = Array.from({ length: daysInMonth + 1 }, (_, i) =>
   dayjs().date(i).format('ddd DD'),
 )
 
-
 dayjs.extend(customParseFormat)
 
 export function checkExpiration(utc_date: string): boolean {

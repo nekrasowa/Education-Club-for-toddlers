@@ -1,5 +1,10 @@
+import {
+  createScheduledClassesList,
+  getDay,
+  getDaysWithoutClasses,
+} from './classListServ'
+
 import { TClassItem } from '@/public/classesList'
-import { createScheduledClassesList } from './classListServ'
 
 const classList: TClassItem[] = [
   {
@@ -60,5 +65,37 @@ describe('createScheduledClassesList', () => {
     expect(result.get('June 03')).toEqual([
       expect.objectContaining({ id: '3' }),
     ])
+  })
+})
+
+describe('getDay', () => {
+  test('Get number from date from string with number on the start', () => {
+    expect(getDay('07 of May')).toBe('07')
+  })
+
+  test('Get number from date from string with number on the end', () => {
+    expect(getDay('May 07')).toBe('07')
+  })
+
+  test('Get number from date from string with numbers only', () => {
+    expect(getDay('07.05.2026')).toBe('07')
+  })
+
+  test('Get number from date from string without number', () => {
+    expect(getDay('seventh of May')).toBeUndefined()
+  })
+  test('Get number from empty string', () => {
+    expect(getDay('')).toBeUndefined()
+  })
+})
+
+const dayList = ['01', '03', '21', '30']
+const classDaysOnly = new Set(classList.map((item) => getDay(item.print_date)))
+
+describe('getDaysWithoutClasses', () => {
+  const result = getDaysWithoutClasses(dayList, classDaysOnly)
+
+  test('Returns correct list', () => {
+    expect(result).toEqual(['21', '30'])
   })
 })

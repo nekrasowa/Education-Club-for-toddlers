@@ -3,16 +3,32 @@ import { Dispatch, SetStateAction } from 'react'
 import { classesList, type TClassItem } from '@/public/classesList'
 import { daysMap } from './dayjs'
 
-const getDay = (value: string) => value.match(/\d+/)?.[0]
+const ageMap = {
+  'age-1': '3-5',
+  'age-2': '6-8',
+  'age-3': '9-11',
+  'age-4': '12-16',
+} as const
 
-const classDaysOnly = new Set(classesList.map((item) => getDay(item.print_date)))
+type AgeKey = keyof typeof ageMap
+type AgeValue = (typeof ageMap)[AgeKey]
 
-const getDaysWithoutClasses = (daysList: string[]) =>
-  daysList.filter((day) => !classDaysOnly.has(getDay(day)))
+export const getDay = (value: string) => value.match(/\d+/)?.[0]
 
-export const daysWithoutClasses = new Set(getDaysWithoutClasses(daysMap))
+const classDaysOnly = new Set(
+  classesList.map((item) => getDay(item.print_date)),
+)
 
+export function getDaysWithoutClasses(
+  daysList: string[],
+  classDaysOnly: Set<string | undefined>,
+): string[] {
+  return daysList.filter((day) => !classDaysOnly.has(getDay(day)))
+}
 
+const daysWithoutClassesArr = getDaysWithoutClasses(daysMap, classDaysOnly)
+
+export const daysWithoutClasses = new Set(daysWithoutClassesArr)
 
 export const createScheduledClassesList = (
   list: TClassItem[],
@@ -22,9 +38,6 @@ export const createScheduledClassesList = (
     return map
   }, new Map<string, TClassItem[]>())
 
-
-
-  
 const filterClasses = (
   list: TClassItem[],
   selectedTags: string[],
@@ -32,16 +45,6 @@ const filterClasses = (
   const tagSet = new Set(selectedTags)
 
   const tutorTags = selectedTags.filter((t) => t.startsWith('t-'))
-
-  const ageMap = {
-    'age-1': '3-5',
-    'age-2': '6-8',
-    'age-3': '9-11',
-    'age-4': '12-16',
-  } as const
-
-  type AgeKey = keyof typeof ageMap
-  type AgeValue = (typeof ageMap)[AgeKey]
 
   const ageTags = selectedTags.filter((t): t is AgeKey => t in ageMap)
 
