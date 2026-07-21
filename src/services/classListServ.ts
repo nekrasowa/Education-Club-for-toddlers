@@ -38,7 +38,7 @@ export const createScheduledClassesList = (
     return map
   }, new Map<string, TClassItem[]>())
 
-const filterClasses = (
+export const filterClasses = (
   list: TClassItem[],
   selectedTags: string[],
 ): TClassItem[] => {
@@ -66,7 +66,7 @@ const filterClasses = (
   })
 }
 
-const getClassesFromDay = (
+export const getClassesFromDay = (
   list: TClassItem[],
   currentDay: string,
 ): TClassItem[] => {
