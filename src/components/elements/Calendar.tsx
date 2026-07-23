@@ -6,7 +6,7 @@ export default function MyCalendar() {
       <Calendar
         fullscreen={false}
         mode='month'
-        className={'w-7/8 h-90 px-20'}
+        className='w-7/8 h-90 px-20'
       />
     </div>
   )
