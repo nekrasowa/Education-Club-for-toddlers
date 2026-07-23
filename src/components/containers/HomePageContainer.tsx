@@ -13,10 +13,12 @@ export function HomePageContainer() {
     addedClassName?: string
     onClick: MouseEventHandler<HTMLElement>
     btnText: string
+    testId?: string
   } = {
     onClick: () => console.log('click'),
     addedClassName: '',
     btnText: welcome.btn,
+    testId: 'homePageContInfoBtn'
   }
   return (
     <>

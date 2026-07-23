@@ -24,6 +24,7 @@ export function InfoBlockWithImg({
     onClick?: MouseEventHandler<HTMLElement>
     btnText: string
     linkHref?: string
+    testId?: string
   }
   side?: TBlockSide
   isCentered?: boolean
@@ -59,6 +60,7 @@ export function InfoBlockWithImg({
               <BlueBtn
                 addedClassName={btn.addedClassName || ''}
                 text={btn.btnText}
+                data-testid={btn.testId || ''}
               />
             </Link>
           ) : (
@@ -66,6 +68,7 @@ export function InfoBlockWithImg({
               addedClassName={btn.addedClassName || ''}
               onClick={btn.onClick}
               text={btn.btnText}
+              data-testid={btn.testId || ''}
             />
           ))}
       </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import Button, { ButtonProps } from 'antd/es/button/button'
+import { Button, ButtonProps } from 'antd'
 import { JSXElementConstructor, MouseEventHandler, ReactElement } from 'react'
 
 export function BlueBtn({
