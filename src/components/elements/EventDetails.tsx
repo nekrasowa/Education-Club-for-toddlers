@@ -2,7 +2,7 @@
 
 import { BlueBtn } from './BlueBtn'
 import CaretDownOutlined from '@ant-design/icons/lib/icons/CaretDownOutlined'
-import Collapse from 'antd/es/collapse/Collapse'
+import { Collapse } from 'antd'
 import { H2Title } from './H2Title'
 import Link from 'next/dist/client/link'
 import { ThinLine } from './ThinLine'
@@ -29,6 +29,7 @@ export function EventDetails({
       <ThinLine pb='pb-5' />
       <p className='shortInfo mb-3 text-lg'>{book.class}</p>
       <Collapse
+        className='moreBlock'
         bordered={false}
         style={{
           background: '#fff',
@@ -47,8 +48,16 @@ export function EventDetails({
         items={[
           {
             key: '1',
-            label: <p className='label text-lg m-0'>{book.more}</p>,
-            children: <p className='extra'>{text}</p>,
+            label: (
+              <p data-testid='moreBlock' className='label text-lg m-0'>
+                {book.more}
+              </p>
+            ),
+            children: (
+              <p className='extra' data-testid='extraText'>
+                {text}
+              </p>
+            ),
           },
         ]}
       />
@@ -56,7 +65,10 @@ export function EventDetails({
         <>
           <ThinLine pb='pb-5' />
           <p className='shortInfo mb-3 text-lg'>{book.payment}</p>
-          <div className='priceBlock flex justify-between mt-2'>
+          <div
+            data-testid='priceBlock'
+            className='priceBlock flex justify-between mt-2'
+          >
             <p className='shortInfo mb-3 text-lg'>{book.total}</p>
             <p className='shortInfo mb-3 text-lg'>{price}</p>
           </div>
