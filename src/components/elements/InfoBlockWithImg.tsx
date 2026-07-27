@@ -56,7 +56,7 @@ export function InfoBlockWithImg({
         </p>
         {btn &&
           (btn.linkHref ? (
-            <Link href={btn.linkHref}>
+            <Link href={btn.linkHref} data-testid={btn.testId ? `link-${btn.testId}` : `link-${btn.linkHref}`}>
               <BlueBtn
                 addedClassName={btn.addedClassName || ''}
                 text={btn.btnText}

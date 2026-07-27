@@ -11,6 +11,8 @@ describe('HomePageContainer', () => {
 
     expect(homePageBtn).toBeInTheDocument()
 
-    
+    const btnLink = screen.getByTestId('link-homePageContInfoBtn')
+    expect(btnLink).toBeInTheDocument()
+    expect(btnLink).toHaveAttribute('href', 'programs')
   })
 })
