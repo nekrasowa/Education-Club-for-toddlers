@@ -26,7 +26,7 @@ export function getDaysWithoutClasses(
   return daysList.filter((day) => !classDaysOnly.has(getDay(day)))
 }
 
-const daysWithoutClassesArr = getDaysWithoutClasses(daysMap, classDaysOnly)
+const daysWithoutClassesArr = getDaysWithoutClasses(daysMap(), classDaysOnly)
 
 export const daysWithoutClasses = new Set(daysWithoutClassesArr)
 
@@ -84,7 +84,7 @@ export const onDayChange = (
   selectedTags: string[],
   setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
 ) => {
-  const currentDay = daysMap[page]
+  const currentDay = daysMap()[page]
   const filteredList = filterClasses(classesList, selectedTags)
   const result = getClassesFromDay(filteredList, currentDay)
   setClassList(createScheduledClassesList(result))
@@ -95,7 +95,7 @@ export const handleFilterTagsChange = (
   page: number,
   setClassList: Dispatch<SetStateAction<Map<string, TClassItem[]>>>,
 ) => {
-  const currentDay = daysMap[page]
+  const currentDay = daysMap()[page]
   const filteredList = filterClasses(classesList, selectedTags)
   const result = getClassesFromDay(filteredList, currentDay)
   setClassList(createScheduledClassesList(result))

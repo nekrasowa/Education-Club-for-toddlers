@@ -21,7 +21,7 @@ export function BlueBtn({
     <Button
       type='primary'
       onClick={onClick}
-      className={`!h-11 !bg-blue-900 !rounded-none flex items-center justify-center gap-2 !px-10 ${addedClassName} ${isDisabled ? '!bg-gray-400' : '' }`}
+      className={`!h-11 !bg-blue-900 !rounded-none flex items-center justify-center gap-2 !px-10 ${addedClassName} ${isDisabled ? '!bg-gray-400 isDisabled' : '' }`}
       {...props}
     >
       {icon && <>{icon}</>}
